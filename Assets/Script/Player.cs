@@ -228,7 +228,7 @@ public class Player : MonoBehaviour
     private void RotatePlayerFollowMouseDirection()
     {
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition = playerCamera.ScreenToWorldPoint(mousePosition);
+        //mousePosition = playerCamera.ScreenToWorldPoint(mousePosition);
         float xAngle = mousePosition.x - playerTransform.position.x;
         float yAngle = mousePosition.y - playerTransform.position.y;
         Vector2 direction = new Vector2(xAngle, yAngle);

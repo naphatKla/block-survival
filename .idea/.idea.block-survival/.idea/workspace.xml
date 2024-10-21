@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="496c8715-0cdb-4c96-89af-de576477815e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scenes/Player Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opt/Scenes/Player Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/PlayerContoller.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opt/Scripts/PlayerContoller.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scenes/New Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scenes/New Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scenes/Player Test.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scenes/Player Test.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
@@ -101,6 +101,7 @@
       <workItem from="1729152437206" duration="985000" />
       <workItem from="1729354920031" duration="5804000" />
       <workItem from="1729421164370" duration="283000" />
+      <workItem from="1729502774630" duration="343000" />
     </task>
     <servers />
   </component>
