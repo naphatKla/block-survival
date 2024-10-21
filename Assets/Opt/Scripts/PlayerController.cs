@@ -7,13 +7,20 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
     public Rigidbody2D rb;
     private PlayerInputAction playerControls;
     
-     private Vector2 moveDirection = Vector2.zero;
-     private InputAction move;
-
+    private Vector2 moveDirection = Vector2.zero;
+    private InputAction move;
+    
+    [Header("Player")]
+    public float moveSpeed = 5f;
+    public float maxHP = 100f;
+    public float currentHP = 100f;
+    public float HPRegenPerSec;
+    private float currentLevel = 1f;
+    
+    
     private void Awake()
     {
         playerControls = new PlayerInputAction();
@@ -37,12 +44,20 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        //  HP Regen
+        if (currentHP < maxHP)
+        {
+            currentHP += HPRegenPerSec * Time.deltaTime;
+            currentHP = Mathf.Min(currentHP, maxHP);
+        }
+
         moveDirection = move.ReadValue<Vector2>();
-        
+    
+        // หมุน Player หันไปตามทิศทางการเคลื่อนที่
         if (moveDirection != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90); // หมุนตัว Player หันไปตามทิศทาง
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         }
     }
 
@@ -50,6 +65,8 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
+
+    
 }
 
 
