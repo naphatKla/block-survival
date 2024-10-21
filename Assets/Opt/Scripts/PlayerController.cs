@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
-    public PlayerInputAction playerControls;
+    private PlayerInputAction playerControls;
     
-     Vector2 moveDirection = Vector2.zero;
+     private Vector2 moveDirection = Vector2.zero;
      private InputAction move;
 
     private void Awake()
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         move.Disable();
     }
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -38,6 +38,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         moveDirection = move.ReadValue<Vector2>();
+        
+        if (moveDirection != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90); // หมุนตัว Player หันไปตามทิศทาง
+        }
     }
 
     private void FixedUpdate()
