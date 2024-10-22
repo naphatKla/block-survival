@@ -5,10 +5,11 @@ using UnityEngine.Serialization;
 
 public class EnemyController : MonoBehaviour
 {
+    #region Declare Variable
     public Transform player;
     public Rigidbody2D rb;
     public BoxCollider2D boxCollider;
-    private Vector2 movement;
+    private Vector2 _movement;
     
     [Header("Enemy Status")]
     public float enemyMoveSpeed = 3f;
@@ -16,9 +17,11 @@ public class EnemyController : MonoBehaviour
     public float enemyCurrentHp = 100f;
     public float enemyDamage = 10f;
     public float attackCooldown = 1f;
-    private float lastAttackTime = 0f;
-    private float attackRange;
-
+    private float _lastAttackTime = 0f;
+    private float _attackRange;
+    #endregion
+    
+    #region Unity Method
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +36,7 @@ public class EnemyController : MonoBehaviour
 
         enemyCurrentHp = enemyMaxHp;
         
-        attackRange = Mathf.Max(boxCollider.size.x, boxCollider.size.y);
+        _attackRange = Mathf.Max(boxCollider.size.x, boxCollider.size.y);
     }
 
     private void Update()
@@ -41,7 +44,7 @@ public class EnemyController : MonoBehaviour
         // Finding player
         Vector2 direction = player.position - transform.position;
         direction.Normalize();
-        movement = direction;
+        _movement = direction;
 
         // Facing the player
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -49,19 +52,21 @@ public class EnemyController : MonoBehaviour
         
         // Check the distance and attack the player if within range.
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer <= attackRange && Time.time >= lastAttackTime + attackCooldown)
+        if (distanceToPlayer <= _attackRange && Time.time >= _lastAttackTime + attackCooldown)
         {
             DealDamageToPlayer();
-            lastAttackTime = Time.time;
+            _lastAttackTime = Time.time;
         }
     }
 
     private void FixedUpdate()
     {
         // Moving to player
-        rb.velocity = new Vector2(movement.x, movement.y) * enemyMoveSpeed;
+        rb.velocity = new Vector2(_movement.x, _movement.y) * enemyMoveSpeed;
     }
+    #endregion
 
+    #region Method
     private void DealDamageToPlayer()
     {
         PlayerController playerController = player.GetComponent<PlayerController>();
@@ -71,4 +76,5 @@ public class EnemyController : MonoBehaviour
             Debug.Log("Enemy dealt " + enemyDamage + " damage to Player.");
         }
     }
+    #endregion
 }

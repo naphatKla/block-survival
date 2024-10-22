@@ -454,6 +454,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1277362980764807387, guid: 752b4eb3553ecca45a82f9a1de482d83, type: 3}
+      propertyPath: hpRegen
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277362980764807387, guid: 752b4eb3553ecca45a82f9a1de482d83, type: 3}
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -755,8 +759,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2de882991c1e0e449ec24ba4b771e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
   player: {fileID: 2047319069}
+  rb: {fileID: 1642588469423209554}
+  boxCollider: {fileID: 1642588469423209553}
+  enemyMoveSpeed: 3
+  enemyMaxHp: 100
+  enemyCurrentHp: 100
+  enemyDamage: 10
+  attackCooldown: 1
+--- !u!61 &1642588469423209553 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 622581714127733277, guid: ab4f2ddd11a405e42a842837da074b91, type: 3}
+  m_PrefabInstance: {fileID: 2191141164355403346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1642588469423209554 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 622581714127733346, guid: ab4f2ddd11a405e42a842837da074b91, type: 3}
+  m_PrefabInstance: {fileID: 2191141164355403346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2191141164355403346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -786,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 622581714127733276, guid: ab4f2ddd11a405e42a842837da074b91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.91
+      value: 11.3
       objectReference: {fileID: 0}
     - target: {fileID: 622581714127733276, guid: ab4f2ddd11a405e42a842837da074b91, type: 3}
       propertyPath: m_LocalPosition.z

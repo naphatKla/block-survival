@@ -7,34 +7,35 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Declare Variable
     public Rigidbody2D rb;
-    private PlayerInputAction playerControls;
+    private PlayerInputAction _playerControls;
     
-    private Vector2 moveDirection = Vector2.zero;
-    private InputAction move;
+    private Vector2 _moveDirection = Vector2.zero;
+    private InputAction _move;
     
     [Header("Player Status")]
     public float moveSpeed = 5f;
     public float maxHp = 100f;
     public float currentHp = 100f;
-    public float hpRegen;
-    private float currentLevel = 1f;
+    public float hpRegen = 0.1f;
+    #endregion
     
-    
+    #region Unity Method
     private void Awake()
     {
-        playerControls = new PlayerInputAction();
+        _playerControls = new PlayerInputAction();
     }
 
     private void OnEnable()
     {
-        move = playerControls.Game.Move;
-        move.Enable();
+        _move = _playerControls.Game.Move;
+        _move.Enable();
     }
 
     private void OnDisable()
     {
-        move.Disable();
+        _move.Disable();
     }
 
     private void Start()
@@ -50,12 +51,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        moveDirection = move.ReadValue<Vector2>();
+        _moveDirection = _move.ReadValue<Vector2>();
     
         // Player facing
-        if (moveDirection != Vector2.zero)
+        if (_moveDirection != Vector2.zero)
         {
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         }
         
@@ -64,9 +65,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        rb.velocity = new Vector2(_moveDirection.x * moveSpeed, _moveDirection.y * moveSpeed);
     }
-
+    #endregion
+    
+    #region method
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
@@ -96,7 +99,7 @@ public class PlayerController : MonoBehaviour
             TakeDamage(enemy.enemyDamage);
         }
     }
-    
+    #endregion
 }
 
 
