@@ -1,38 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyController : MonoBehaviour
 {
-    public float moveSpeed = 3f; // ความเร็วของศัตรู
-    public Transform player; // อ้างอิงตำแหน่งของผู้เล่น
-    private Rigidbody2D rb;
+    public Transform player;
+    public Rigidbody2D rb;
+    public BoxCollider2D boxCollider;
     private Vector2 movement;
+    
+    [Header("Enemy Status")]
+    public float enemyMoveSpeed = 3f;
+    public float enemyMaxHp = 100f;
+    public float enemyCurrentHp = 100f;
+    public float enemyDamage = 10f;
+    public float attackCooldown = 1f;
+    private float lastAttackTime = 0f;
+    private float attackRange;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // ตรวจสอบว่า Rigidbody2D ถูกอ้างอิงหรือไม่
+        rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
-            Debug.LogError("Rigidbody2D not found on enemy object!");
+            Debug.LogError("Rigidbody2D not found on Enemy Object!");
         }
+        if (boxCollider == null)
+        {
+            Debug.LogError("BoxCollider2D not found on Enemy Object!");
+        }
+
+        enemyCurrentHp = enemyMaxHp;
+        
+        attackRange = Mathf.Max(boxCollider.size.x, boxCollider.size.y);
     }
 
     private void Update()
     {
-        // ตรวจหาตำแหน่งของผู้เล่น
+        // Finding player
         Vector2 direction = player.position - transform.position;
-        direction.Normalize(); // ปรับทิศทางให้เป็นหน่วยเวคเตอร์
+        direction.Normalize();
         movement = direction;
 
-        // หมุนศัตรูให้หันไปหาผู้เล่น
+        // Facing the player
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90); // หมุนให้หันไปยังทิศทางของผู้เล่น
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        
+        // Check the distance and attack the player if within range.
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        if (distanceToPlayer <= attackRange && Time.time >= lastAttackTime + attackCooldown)
+        {
+            DealDamageToPlayer();
+            lastAttackTime = Time.time;
+        }
     }
 
     private void FixedUpdate()
     {
-        // เคลื่อนที่ตามผู้เล่น
-        rb.velocity = new Vector2(movement.x, movement.y) * moveSpeed;
+        // Moving to player
+        rb.velocity = new Vector2(movement.x, movement.y) * enemyMoveSpeed;
+    }
+
+    private void DealDamageToPlayer()
+    {
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.TakeDamage(enemyDamage);
+            Debug.Log("Enemy dealt " + enemyDamage + " damage to Player.");
+        }
     }
 }
