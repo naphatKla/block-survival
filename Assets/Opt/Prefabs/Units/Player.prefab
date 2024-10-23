@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1277362980764807384}
-  - component: {fileID: 1277362980764807387}
   - component: {fileID: 1277362980764807386}
   - component: {fileID: 1277362980764807334}
   - component: {fileID: 1277362980764807385}
+  - component: {fileID: 1277362980764807387}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -121,20 +121,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1277362980764807387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277362980764807389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 838af4510c4695a498e8f9c3af103e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  rb: {fileID: 1277362980764807334}
 --- !u!114 &1277362980764807386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +206,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1277362980764807387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277362980764807389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838af4510c4695a498e8f9c3af103e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1277362980764807334}
+  moveSpeed: 10
+  maxHp: 100
+  currentHp: 100
+  hpRegen: 0.1
+  isPlayerAlive: 1
 --- !u!1 &1777408839590048055
 GameObject:
   m_ObjectHideFlags: 0
