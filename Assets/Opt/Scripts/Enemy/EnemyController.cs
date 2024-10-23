@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
 
         enemyCurrentHp = enemyMaxHp;
         
+        // Attack Range = Enemy Box Collider
         _attackRange = Mathf.Max(boxCollider.size.x, boxCollider.size.y);
     }
 
@@ -83,6 +84,18 @@ public class EnemyController : MonoBehaviour
         {
             playerController.TakeDamage(enemyDamage);
             Debug.Log("Enemy dealt " + enemyDamage + " damage to Player.");
+        }
+    }
+
+    public void EnemyTakeDamage(float damage)
+    {
+        enemyCurrentHp -= damage;
+        Debug.Log("Enemy took " + damage + " damage. Current HP: " + enemyCurrentHp);
+        
+        if (enemyCurrentHp <= 0)
+        {
+            Destroy(gameObject);
+            Debug.Log("Enemy has been destroyed.");
         }
     }
     #endregion

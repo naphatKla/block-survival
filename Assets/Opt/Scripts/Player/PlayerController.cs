@@ -10,15 +10,15 @@ public class PlayerController : MonoBehaviour
     #region Declare Variable
     public Rigidbody2D rb;
     private PlayerInputAction _playerControls;
-    
     private Vector2 _moveDirection = Vector2.zero;
     private InputAction _move;
     
     [Header("Player Status")]
-    public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f;
+    public float addMoveSpeed;
     public float maxHp = 100f;
     public float currentHp = 100f;
-    public float hpRegen = 0.1f;
+    public float hpRegen = 0.05f;
     public bool isPlayerAlive = true;
     #endregion
     
@@ -52,41 +52,54 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _moveDirection = _move.ReadValue<Vector2>();
-    
-        // Player facing
-        if (_moveDirection != Vector2.zero)
+        if (isPlayerAlive)
         {
-            float angle = Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            _moveDirection = _move.ReadValue<Vector2>();
+
+            // Player facing
+            if (_moveDirection != Vector2.zero)
+            {
+                float angle = Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            }
+
+            HpRegenerated();
         }
-        
-        HpRegenerated();
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(_moveDirection.x * moveSpeed, _moveDirection.y * moveSpeed);
+        if (isPlayerAlive)
+        {
+            // Player Move
+            float totalSpeed = baseMoveSpeed + (baseMoveSpeed * (addMoveSpeed / 100f));
+            rb.velocity = new Vector2(_moveDirection.x * totalSpeed, _moveDirection.y * totalSpeed);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero; // Stop moving if player die
+        }
     }
     #endregion
     
     #region method
     public void TakeDamage(float damage)
     {
-        currentHp -= damage;
-
-        if (currentHp <= 0)
+        if (isPlayerAlive)
         {
-            currentHp = 0;
-            hpRegen = 0;
-            isPlayerAlive = false;
-            Debug.Log("Player has died.");
+            currentHp -= damage;
+
+            if (currentHp <= 0)
+            {
+                isPlayerAlive = false;
+                Debug.Log("Player has died.");
+            }
         }
     }
 
     private void HpRegenerated()
     {
-        if (currentHp < maxHp)
+        if (isPlayerAlive && currentHp < maxHp)
         {
             float regenAmount = maxHp * (hpRegen / 100f) * Time.deltaTime;
             currentHp += regenAmount;
