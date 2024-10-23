@@ -20,6 +20,7 @@ public class SceneController : MonoBehaviour
         Story,
         Story2,
         Gameplay,
+        GamePlayShaoKuyToMobile,
         Exit
     }
 
