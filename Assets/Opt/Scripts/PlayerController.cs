@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float maxHp = 100f;
     public float currentHp = 100f;
     public float hpRegen = 0.1f;
+    public bool isPlayerAlive = true;
     #endregion
     
     #region Unity Method
@@ -76,7 +77,10 @@ public class PlayerController : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            Destroy(gameObject);
+            currentHp = 0;
+            hpRegen = 0;
+            isPlayerAlive = false;
+            Debug.Log("Player has died.");
         }
     }
 

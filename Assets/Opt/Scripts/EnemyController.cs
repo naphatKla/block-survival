@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     public float enemyCurrentHp = 100f;
     public float enemyDamage = 10f;
     public float attackCooldown = 1f;
-    private float _lastAttackTime = 0f;
+    private float _lastAttackTime;
     private float _attackRange;
     #endregion
     
@@ -41,27 +41,36 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        // Finding player
-        Vector2 direction = player.position - transform.position;
-        direction.Normalize();
-        _movement = direction;
-
-        // Facing the player
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-        
-        // Check the distance and attack the player if within range.
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer <= _attackRange && Time.time >= _lastAttackTime + attackCooldown)
+        // If Player is alive then move to player
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null && playerController.isPlayerAlive)
         {
-            DealDamageToPlayer();
-            _lastAttackTime = Time.time;
+            // Finding player position
+            Vector2 direction = player.position - transform.position;
+            direction.Normalize();
+            _movement = direction;
+
+            // Facing to player
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        
+            // Check the distance and attack the player if within range.
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            if (distanceToPlayer <= _attackRange && Time.time >= _lastAttackTime + attackCooldown)
+            {
+                DealDamageToPlayer();
+                _lastAttackTime = Time.time;
+            }
+        }
+        else
+        {
+            _movement = Vector2.zero; // Stop moving when player die
         }
     }
 
     private void FixedUpdate()
     {
-        // Moving to player
+        // Moving
         rb.velocity = new Vector2(_movement.x, _movement.y) * enemyMoveSpeed;
     }
     #endregion
