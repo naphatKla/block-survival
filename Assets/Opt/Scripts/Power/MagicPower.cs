@@ -16,7 +16,7 @@ public abstract class MagicPower : MonoBehaviour
     
     private void Update()
     {
-        // Count the timer and automatically summon magic power when the cooldown is complete
+        // Auto spell Magic
         _cooldownTimer -= Time.deltaTime;
         if (_cooldownTimer <= 0)
         {

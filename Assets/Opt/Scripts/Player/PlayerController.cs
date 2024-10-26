@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     
     [Header("Player Status")]
     public float baseMoveSpeed = 5f;
-    public float addMoveSpeed;
+    public float addMoveSpeed; // Increases movement speed by a % of base movement speed
     public float maxHp = 100f;
     public float currentHp = 100f;
     public float hpRegen = 0.05f;
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isPlayerAlive)
         {
-            // Player Move
+            // Player Movement
             float totalSpeed = baseMoveSpeed + (baseMoveSpeed * (addMoveSpeed / 100f));
             rb.velocity = new Vector2(_moveDirection.x * totalSpeed, _moveDirection.y * totalSpeed);
         }

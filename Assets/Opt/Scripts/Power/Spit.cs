@@ -11,7 +11,7 @@ public class Spit : MagicPower
     {
         magicDamage = 20f;
         magicCooldown = 2f;
-        magicMoveSpeed = 8;
+        magicMoveSpeed = 40;
         magicMultipleShot = 1f;
     }
 
@@ -25,7 +25,7 @@ public class Spit : MagicPower
             Vector2 direction = closestEnemy.transform.position - transform.position;
             direction.Normalize();
 
-            // Build Spit projectile set direction
+            // Build Object projectile set direction
             GameObject spit = Instantiate(spitPrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = spit.GetComponent<Rigidbody2D>();
             if (rb != null)
@@ -55,20 +55,5 @@ public class Spit : MagicPower
         return closestEnemy;
     }
     
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            // Get EnemyController and deal damage
-            EnemyController enemy = collision.GetComponent<EnemyController>();
-            if (enemy != null)
-            {
-                enemy.EnemyTakeDamage(magicDamage);
-            }
-
-            // Destroy the spit projectile after collision
-            Destroy(gameObject);
-        }
-    }
 }
 
