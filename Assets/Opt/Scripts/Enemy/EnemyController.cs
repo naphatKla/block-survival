@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,16 @@ using UnityEngine.Serialization;
 public class EnemyController : MonoBehaviour
 {
     #region Declare Variable
-    public Transform player;
+    public Transform target;
     public Rigidbody2D rb;
     public BoxCollider2D boxCollider;
     private Vector2 _movement;
     
     [Header("Enemy Status")]
-    public float enemyMoveSpeed = 3f;
-    public float enemyMaxHp = 100f;
-    public float enemyCurrentHp = 100f;
-    public float enemyDamage = 10f;
+    public float moveSpeed = 3f;
+    public float maxHp = 100f;
+    public float currentHp = 100f;
+    public float damage = 10f;
     public float attackCooldown = 1f;
     private float _lastAttackTime;
     private float _attackRange;
@@ -34,7 +35,7 @@ public class EnemyController : MonoBehaviour
             Debug.LogError("BoxCollider2D not found on Enemy Object!");
         }
 
-        enemyCurrentHp = enemyMaxHp;
+        currentHp = maxHp;
         
         // Attack Range = Enemy Box Collider
         _attackRange = Mathf.Max(boxCollider.size.x, boxCollider.size.y);
@@ -43,11 +44,11 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         // If Player is alive then move to player
-        PlayerController playerController = player.GetComponent<PlayerController>();
+        PlayerController playerController = target.GetComponent<PlayerController>();
         if (playerController != null && playerController.isPlayerAlive)
         {
             // Finding player position
-            Vector2 direction = player.position - transform.position;
+            Vector2 direction = target.position - transform.position;
             direction.Normalize();
             _movement = direction;
 
@@ -56,10 +57,10 @@ public class EnemyController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         
             // Check the distance and attack the player if within range.
-            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            float distanceToPlayer = Vector2.Distance(transform.position, target.position);
             if (distanceToPlayer <= _attackRange && Time.time >= _lastAttackTime + attackCooldown)
             {
-                DealDamageToPlayer();
+                DealDamage();
                 _lastAttackTime = Time.time;
             }
         }
@@ -68,31 +69,31 @@ public class EnemyController : MonoBehaviour
             _movement = Vector2.zero; // Stop moving when player die
         }
     }
-
+    
     private void FixedUpdate()
     {
         // Moving
-        rb.velocity = new Vector2(_movement.x, _movement.y) * enemyMoveSpeed;
+        rb.velocity = new Vector2(_movement.x, _movement.y) * moveSpeed;
     }
     #endregion
 
     #region Method
-    private void DealDamageToPlayer()
+    private void DealDamage()
     {
-        PlayerController playerController = player.GetComponent<PlayerController>();
+        PlayerController playerController = target.GetComponent<PlayerController>();
         if (playerController != null)
         {
-            playerController.TakeDamage(enemyDamage);
-            Debug.Log("Enemy dealt " + enemyDamage + " damage to Player.");
+            playerController.TakeDamage(damage);
+            Debug.Log("Enemy dealt " + damage + " damage to Player.");
         }
     }
 
-    public void EnemyTakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        enemyCurrentHp -= damage;
-        Debug.Log("Enemy took " + damage + " damage. Current HP: " + enemyCurrentHp);
+        currentHp -= damage;
+        Debug.Log("Enemy took " + damage + " damage. Current HP: " + currentHp);
         
-        if (enemyCurrentHp <= 0)
+        if (currentHp <= 0)
         {
             Destroy(gameObject);
             Debug.Log("Enemy has been destroyed.");

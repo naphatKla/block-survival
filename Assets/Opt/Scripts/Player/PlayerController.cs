@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     #region Declare Variable
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     private PlayerInputAction _playerControls;
     private Vector2 _moveDirection = Vector2.zero;
     private InputAction _move;
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         EnemyController enemy = collision.GetComponent<EnemyController>();
         if (enemy != null)
         {
-            TakeDamage(enemy.enemyDamage);
+            TakeDamage(enemy.damage);
         }
     }
     #endregion

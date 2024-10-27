@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 3219584327321126696}
   - component: {fileID: 2538723556094786101}
   - component: {fileID: 4725905976510830639}
+  - component: {fileID: 5683541505532704305}
   m_Layer: 0
-  m_Name: Spit
+  m_Name: SpitBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,3 +134,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5683541505532704305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572252252945685586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64d2146da78e1043b56aed456acb13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
