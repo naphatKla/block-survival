@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class EnemyController : MonoBehaviour
+public abstract class EnemyController : MonoBehaviour
 {
     #region Declare Variable
     public Transform target;
@@ -13,17 +13,17 @@ public class EnemyController : MonoBehaviour
     private Vector2 _movement;
     
     [Header("Enemy Status")]
-    public float moveSpeed = 3f;
-    public float maxHp = 100f;
-    public float currentHp = 100f;
-    public float damage = 10f;
-    public float attackCooldown = 1f;
+    public float moveSpeed;
+    public float maxHp;
+    public float currentHp;
+    public float damage;
+    private float _attackCooldown = 1f;
     private float _lastAttackTime;
     private float _attackRange;
     #endregion
     
     #region Unity Method
-    private void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
         _attackRange = Mathf.Max(boxCollider.size.x, boxCollider.size.y);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         // If Player is alive then move to player
         PlayerController playerController = target.GetComponent<PlayerController>();
@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
         
             // Check the distance and attack the player if within range.
             float distanceToPlayer = Vector2.Distance(transform.position, target.position);
-            if (distanceToPlayer <= _attackRange && Time.time >= _lastAttackTime + attackCooldown)
+            if (distanceToPlayer <= _attackRange && Time.time >= _lastAttackTime + _attackCooldown)
             {
                 DealDamage();
                 _lastAttackTime = Time.time;
@@ -70,7 +70,7 @@ public class EnemyController : MonoBehaviour
         }
     }
     
-    private void FixedUpdate()
+    protected  virtual void FixedUpdate()
     {
         // Moving
         rb.velocity = new Vector2(_movement.x, _movement.y) * moveSpeed;
@@ -78,7 +78,8 @@ public class EnemyController : MonoBehaviour
     #endregion
 
     #region Method
-    private void DealDamage()
+
+    protected virtual void DealDamage()
     {
         PlayerController playerController = target.GetComponent<PlayerController>();
         if (playerController != null)
@@ -88,7 +89,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+     public virtual void TakeDamage(float damage)
     {
         currentHp -= damage;
         Debug.Log("Enemy took " + damage + " damage. Current HP: " + currentHp);

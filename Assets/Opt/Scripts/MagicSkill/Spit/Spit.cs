@@ -9,8 +9,8 @@ public class Spit : MagicPower
 
     private void Start()
     {
-        magicDamage = 20f;
-        magicCooldown = 2f;
+        magicDamage = 400f;
+        magicCooldown = 1f;
         magicMoveSpeed = 40;
         magicMultipleShot = 1f;
     }
