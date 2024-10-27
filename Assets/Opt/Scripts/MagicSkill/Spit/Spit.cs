@@ -42,24 +42,5 @@ public class Spit : MagicPower
         }
     }
     
-    private GameObject FindClosestEnemy()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Find Tag "Enemy"
-        GameObject closestEnemy = null;
-        float shortestDistance = Mathf.Infinity;
-        
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position); // Calculate position
-            if (distance < shortestDistance)
-            {
-                shortestDistance = distance;
-                closestEnemy = enemy;
-            }
-        }
-
-        return closestEnemy;
-    }
-    
 }
 

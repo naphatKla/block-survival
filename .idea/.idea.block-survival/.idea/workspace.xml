@@ -6,19 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="496c8715-0cdb-4c96-89af-de576477815e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.block-survival/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.block-survival/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Prefabs/Magic/Spit.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Prefabs/Magic/Spit.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scenes/Shooting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opt/Scenes/Shooting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Enemy/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opt/Scripts/Enemy/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opt/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Power.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Power/Ammo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Power/Ammo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Power/MagicPower.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Power/MagicPower.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Power/Spit.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/Power/Spit.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/MagicSkill/MagicPower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opt/Scripts/MagicSkill/MagicPower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Opt/Scripts/MagicSkill/Spit/Spit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Opt/Scripts/MagicSkill/Spit/Spit.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +107,7 @@
       <workItem from="1729756250056" duration="1543000" />
       <workItem from="1729760569673" duration="1448000" />
       <workItem from="1729945636470" duration="7065000" />
-      <workItem from="1730020784418" duration="4392000" />
+      <workItem from="1730020784418" duration="7352000" />
     </task>
     <servers />
   </component>
