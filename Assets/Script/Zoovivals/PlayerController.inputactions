@@ -19,7 +19,7 @@
                 {
                     "name": "",
                     "id": "f35bee47-13bc-47da-abfa-60211b820140",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<iOSGameController>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
