@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if(Time.timeScale.Equals(0)) return;
-        RotatePlayerFollowMouseDirection();
+        RotatePlayerFollowMouseDirection(maxDistanse:10);
         CameraFollowPlayer();
         PlayerMovementHandle();
         PlayerBarUpdate();
@@ -225,14 +225,31 @@ public class Player : MonoBehaviour
         playerMovementStatus = movementStatus;
     }
     
-    private void RotatePlayerFollowMouseDirection()
+    private void RotatePlayerFollowMouseDirection(float maxDistanse) //Follow enemy first
     {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = playerCamera.ScreenToWorldPoint(mousePosition);
-        float xAngle = mousePosition.x - playerTransform.position.x;
-        float yAngle = mousePosition.y - playerTransform.position.y;
-        Vector2 direction = new Vector2(xAngle, yAngle);
-        playerTransform.up = direction;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // หา Enemy ทั้งหมดในฉาก
+        GameObject nearestEnemy = null;
+        float minDistance = maxDistanse; // เริ่มต้น minDistance ด้วยค่า maxDistance
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(playerTransform.position, enemy.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if (nearestEnemy != null)
+        {
+            Vector3 enemyPosition = nearestEnemy.transform.position;
+            Vector2 direction = new Vector2(
+                enemyPosition.x - playerTransform.position.x,
+                enemyPosition.y - playerTransform.position.y
+            );
+            playerTransform.up = direction;
+        }
     }
     
     public void TakeDamage(float damage)
