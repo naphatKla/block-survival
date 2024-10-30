@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
     [Header("Player Status")]
     public float baseMoveSpeed = 5f;
     public float addMoveSpeed; // Increases movement speed by a % of base movement speed
-    public float maxHp = 100f;
-    public float currentHp = 100f;
+    public float maxHp = 1000f;
+    public float currentHp = 1000f;
     public float hpRegen = 0.05f;
     public bool isPlayerAlive = true;
+    public float playerScore;
     #endregion
     
     #region Unity Method
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         }
         
         currentHp = maxHp;
+        playerScore = 0f;
     }
 
     private void Update()
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
             {
                 isPlayerAlive = false;
                 Debug.Log("Player has died.");
+                Debug.Log($"Your Score: {playerScore}");
             }
         }
     }

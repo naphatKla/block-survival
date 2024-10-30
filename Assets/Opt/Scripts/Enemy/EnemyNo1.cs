@@ -12,6 +12,8 @@ public class EnemyNo1 : EnemyController
         maxHp = 1000f;
         currentHp = 1000f;
         damage = 100f;
+        enemyScore = 100f;
     }
+    
     
 }

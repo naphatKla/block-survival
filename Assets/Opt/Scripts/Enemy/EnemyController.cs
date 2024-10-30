@@ -17,9 +17,12 @@ public abstract class EnemyController : MonoBehaviour
     public float maxHp;
     public float currentHp;
     public float damage;
+    public float enemyScore;
     private float _attackCooldown = 1f;
     private float _lastAttackTime;
     private float _attackRange;
+    private PlayerController _playerController;
+    
     #endregion
     
     #region Unity Method
@@ -39,13 +42,14 @@ public abstract class EnemyController : MonoBehaviour
         
         // Attack Range = Enemy Box Collider
         _attackRange = Mathf.Max(boxCollider.size.x, boxCollider.size.y);
+        
     }
 
     protected virtual void Update()
     {
         // If Player is alive then move to player
-        PlayerController playerController = target.GetComponent<PlayerController>();
-        if (playerController != null && playerController.isPlayerAlive)
+        _playerController = target.GetComponent<PlayerController>();
+        if (_playerController != null && _playerController.isPlayerAlive)
         {
             // Finding player position
             Vector2 direction = target.position - transform.position;
@@ -81,10 +85,10 @@ public abstract class EnemyController : MonoBehaviour
 
     protected virtual void DealDamage()
     {
-        PlayerController playerController = target.GetComponent<PlayerController>();
-        if (playerController != null)
+        _playerController = target.GetComponent<PlayerController>();
+        if (_playerController != null)
         {
-            playerController.TakeDamage(damage);
+            _playerController.TakeDamage(damage);
             Debug.Log("Enemy dealt " + damage + " damage to Player.");
         }
     }
@@ -96,6 +100,10 @@ public abstract class EnemyController : MonoBehaviour
         
         if (currentHp <= 0)
         {
+            if (_playerController != null)
+            {
+                _playerController.playerScore += enemyScore;
+            }
             Destroy(gameObject);
             Debug.Log("Enemy has been destroyed.");
         }
