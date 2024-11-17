@@ -45,7 +45,9 @@ public class Player : Singleton<Player>
     private Vector3 _velocity = Vector3.zero;
 
     [Header("Player Movement")]
-    public float walkSpeed;
+    public float baseWalkSpeed;
+    public float walkSpeedBuff;
+    public float WalkSpeed => baseWalkSpeed + walkSpeedBuff;
     public float sprintSpeed;
     public float dashStaminaDrain;
     public float sprintStaminaDrain;
@@ -76,7 +78,7 @@ public class Player : Singleton<Player>
         playerTransform = transform.GetChild(0);
         health = MaxHealth;
         _stamina = maxStamina;
-        _currentSpeed = walkSpeed;
+        _currentSpeed = baseWalkSpeed;
     }
     void Update()
     {
@@ -122,7 +124,7 @@ public class Player : Singleton<Player>
         {
             SetPlayerStatus(PlayerMovementStatus.StaminaRecoveryCooldown);
             timeCount += Time.deltaTime;
-            _currentSpeed = walkSpeed / 2;
+            _currentSpeed = WalkSpeed / 2;
             yield return null;
         }
         SetPlayerStatus(PlayerMovementStatus.Clear);
@@ -198,7 +200,7 @@ public class Player : Singleton<Player>
         if (_stamina <= 0) StartCoroutine(StaminaRecoveryCooldown());
         
         SetPlayerStatus(PlayerMovementStatus.Walk);
-        _currentSpeed = walkSpeed;
+        _currentSpeed = WalkSpeed;
         
         SprintHandle();
         DashHandle();

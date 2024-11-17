@@ -212,7 +212,7 @@ public class Level : Singleton<Level>
         _player.health = GetClassData(playerClass).health;
         _player.baseMaxHealth = GetClassData(playerClass).health;
         _player.basePlayerDamage = GetClassData(playerClass).damage;
-        _player.walkSpeed = GetClassData(playerClass).walkSpeed;
+        _player.baseWalkSpeed = GetClassData(playerClass).walkSpeed;
         _player.sprintSpeed = GetClassData(playerClass).sprintSpeed;
         _player.dashSpeed = GetClassData(playerClass).dashSpeed;
         _player.basePlayerAttackSpeed = GetClassData(playerClass).attackSpeed;
@@ -384,10 +384,10 @@ public class Level : Singleton<Level>
         lootChest.speedButton.onClick.AddListener(() =>
         {
             lootChestPickPoint--;
-            _player.walkSpeed += lootChestData.upgradeWalkSpeed;
+            _player.baseWalkSpeed += lootChestData.upgradeWalkSpeed;
             _player.sprintSpeed += lootChestData.upgradeSprintSpeed;
             _player.sprintStaminaDrain -= lootChestData.upgradeSprintStaminaDrain;
-            _player.walkSpeed = Mathf.Clamp(_player.walkSpeed, 0, GetClassData(_combatSystem.playerClass).walkSpeedLimit);
+            _player.baseWalkSpeed = Mathf.Clamp(_player.baseWalkSpeed, 0, GetClassData(_combatSystem.playerClass).walkSpeedLimit);
             _player.sprintSpeed = Mathf.Clamp(_player.sprintSpeed, 0, GetClassData(_combatSystem.playerClass).sprintSpeedLimit);
         });
 
@@ -440,10 +440,10 @@ public class Level : Singleton<Level>
 
         playerLevelUp.speedButton.onClick.AddListener(() =>
         {
-            _player.walkSpeed += GetClassData(_combatSystem.playerClass).upgradeWalkSpeed;
+            _player.baseWalkSpeed += GetClassData(_combatSystem.playerClass).upgradeWalkSpeed;
             _player.sprintSpeed +=GetClassData(_combatSystem.playerClass).upgradeSprintSpeed;
             _player.sprintStaminaDrain -= GetClassData(_combatSystem.playerClass).upgradeSprintStaminaDrain;
-            _player.walkSpeed = Mathf.Clamp(_player.walkSpeed, 0, GetClassData(_combatSystem.playerClass).walkSpeedLimit);
+            _player.baseWalkSpeed = Mathf.Clamp(_player.baseWalkSpeed, 0, GetClassData(_combatSystem.playerClass).walkSpeedLimit);
             _player.sprintSpeed = Mathf.Clamp(_player.sprintSpeed, 0, GetClassData(_combatSystem.playerClass).sprintSpeedLimit);
             playerLevelUpPoint--;
         });

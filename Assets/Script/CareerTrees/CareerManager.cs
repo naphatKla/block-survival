@@ -62,7 +62,6 @@ public class CareerManager : Singleton<CareerManager>
        foreach (Career career in activeCareers)
        {
            sumStats.health += career.GetStats().health;
-           sumStats.stamina += career.GetStats().stamina;
            sumStats.attackDamage += career.GetStats().attackDamage;
            sumStats.attackSpeed += career.GetStats().attackSpeed;
            sumStats.movementSpeed += career.GetStats().movementSpeed;
@@ -107,7 +106,6 @@ public class CareerManager : Singleton<CareerManager>
         foreach (Career career in activeCareers)
         {
             sumStats.health += career.GetStats().health;
-            sumStats.stamina += career.GetStats().stamina;
             sumStats.attackDamage += career.GetStats().attackDamage;
             sumStats.attackSpeed += career.GetStats().attackSpeed;
             sumStats.movementSpeed += career.GetStats().movementSpeed;

@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public struct PlayerStats
 {
     public float health;
-    public float stamina;
     public float attackDamage;
     public float attackSpeed;
     public float movementSpeed;
@@ -17,7 +16,6 @@ public struct PlayerStats
     public void PrintStats()
     {
         Debug.Log($"Health: {health}");
-        Debug.Log($"Stamina: {stamina}");
         Debug.Log($"Attack Damage: {attackDamage}");
         Debug.Log($"Attack Speed: {attackSpeed}");
         Debug.Log($"Movement Speed: {movementSpeed}");

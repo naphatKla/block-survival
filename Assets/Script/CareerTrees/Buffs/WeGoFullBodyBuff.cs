@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-public class WeGoFullBody : Buff
+public class WeGoFullBodyBuff : Buff
 {
     private float playerMaxHealthTemp;
     private float playerDamageTemp;
     private float playerMaxHealthBuffTemp;
     private float playerDamageBuffTemp;
-    public override void OnStartBuff()
+    public override void OnStartBuffFirstTime()
     {
         playerMaxHealthTemp = player.baseMaxHealth;
         player.maxHealthBuff += -(player.baseMaxHealth * 0.35f); // reduce 35% of max health
@@ -20,6 +20,11 @@ public class WeGoFullBody : Buff
         Debug.Log($"Base HP: {player.baseMaxHealth} : Buff HP: {player.maxHealthBuff} : Result : {player.MaxHealth}");
         Debug.Log($"Base DMG: {player.basePlayerDamage} : Buff DMG: {player.playerDamageBuff} : Result : {player.PlayerDamage}");
         Debug.Log("=====================================");
+    }
+
+    public override void OnStartBuff()
+    {
+
     }
 
     public override void OnUpdateBuff()

@@ -17,7 +17,8 @@ public abstract class Buff : MonoBehaviour
     protected Level level = Level.Instance;
     private float _buffCooldownTimer;
     private float _buffDurationTimer;
-    private bool _isEnter;
+    protected bool isEnter;
+    private bool _isEnterFirstTime;
     
     private void Start()
     {
@@ -26,6 +27,7 @@ public abstract class Buff : MonoBehaviour
         skillSystem = SkillSystem.Instance;
         level = Level.Instance;
         _buffCooldownTimer = buffCooldown;
+        _isEnterFirstTime = true;
         if (hasCooldown) _buffCooldownTimer = 0;
     }
     
@@ -35,40 +37,61 @@ public abstract class Buff : MonoBehaviour
         if (hasCooldown && IsCooldown) return;
         if (!ApplyBuffCondition())
         {
-            if (_isEnter)
+            if (isEnter)
             {
                 OnEndBuff();
-                _isEnter = false;
+                isEnter = false;
             }
             return;
         }
         
         if (hasLifetime && _buffDurationTimer > 0)
         {
-            if (!_isEnter)
+            if (!isEnter)
             {
                 OnStartBuff();
-                _isEnter = true;
+                if (_isEnterFirstTime)
+                {
+                    Debug.LogWarning("Enter First Time");
+                    player.maxHealthBuff += buffStats.health;
+                    player.playerDamageBuff += buffStats.attackDamage;
+                    player.playerAttackSpeedBuff += buffStats.attackSpeed;
+                    player.walkSpeedBuff += buffStats.movementSpeed;
+                    _isEnterFirstTime = false;
+                    OnStartBuffFirstTime();
+                }
+                isEnter = true;
             }
             OnUpdateBuff();
             _buffDurationTimer -= Time.deltaTime;
             if (_buffDurationTimer <= 0)
             {
                 OnEndBuff();
-                _isEnter = false;
+                isEnter = false;
             }
             return;
         }
         
-        if (!_isEnter)
+        if (!isEnter)
         {
             OnStartBuff();
-            _isEnter = true;
+            if (_isEnterFirstTime)
+            {
+                Debug.LogWarning("Enter First Time");
+                player.maxHealthBuff += buffStats.health;
+                player.playerDamageBuff += buffStats.attackDamage;
+                player.playerAttackSpeedBuff += buffStats.attackSpeed;
+                player.walkSpeedBuff += buffStats.movementSpeed;
+                _isEnterFirstTime = false;
+                OnStartBuffFirstTime();
+            }
+            isEnter = true;
         }
         
         OnUpdateBuff();
     }
 
+    public abstract void OnStartBuffFirstTime();
     public abstract void OnStartBuff();
     public abstract void OnUpdateBuff();
     public abstract void OnEndBuff();
