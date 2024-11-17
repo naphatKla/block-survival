@@ -11,7 +11,7 @@ public class Missile : Bullet
     {
         if (col.gameObject.CompareTag("Guard"))
         {
-            col.GetComponent<Guard>().TakeDamage(player.playerDamage);
+            col.GetComponent<Guard>().TakeDamage(player.PlayerDamage);
             Instantiate(explode.gameObject, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -25,7 +25,7 @@ public class Missile : Bullet
                 if(col == null) return;
                 Enemy _enemy = col.gameObject.GetComponent<Enemy>();
                 if(_enemy == null) return;
-                _enemy.TakeDamage(player.playerDamage);
+                _enemy.TakeDamage(player.PlayerDamage);
                 Instantiate(explode.gameObject, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }

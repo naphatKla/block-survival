@@ -40,7 +40,7 @@ public class CombatSystem : Singleton<CombatSystem>
         bulletOfsetScale = _level.defaultData.bulletOffSetScale;
         _player = GetComponent<Player>();
         playerClass = PlayerClass.Default;
-        Invoke("BulletSpawn", _player.playerAttackSpeed);
+        Invoke("BulletSpawn", _player.PlayerAttackSpeed);
     }
     void Update()
     {
@@ -74,7 +74,7 @@ public class CombatSystem : Singleton<CombatSystem>
                 break;
         }
         shootingSoundEffect.Play();
-        Invoke("BulletSpawn", _player.playerAttackSpeed);
+        Invoke("BulletSpawn", _player.PlayerAttackSpeed);
     }
     
     private void BulletDefaultPatternSpawn()

@@ -28,7 +28,7 @@ public class Explode : MonoBehaviour
                 if(col == null) return;
                 Enemy _enemy = col.gameObject.GetComponent<Enemy>();
                 if(_enemy == null) return;
-                _enemy.TakeDamage(_player.playerDamage/2);
+                _enemy.TakeDamage(_player.PlayerDamage/2);
             }
             catch (Exception e)
             {

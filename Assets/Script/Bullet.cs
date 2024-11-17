@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
             return;
         }
         
-        float damage = bulletType.Equals(BulletType.PlayerHelper) ? bulletDamage : player.playerDamage;
+        float damage = bulletType.Equals(BulletType.PlayerHelper) ? bulletDamage : player.PlayerDamage;
         
         if (col.gameObject.CompareTag("Guard") && !bulletType.Equals(BulletType.PlayerHelper))
         {

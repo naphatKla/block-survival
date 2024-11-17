@@ -210,12 +210,12 @@ public class Level : Singleton<Level>
     public void SetPlayerClass(CombatSystem.PlayerClass playerClass)
     {
         _player.health = GetClassData(playerClass).health;
-        _player.maxHealth = GetClassData(playerClass).health;
-        _player.playerDamage = GetClassData(playerClass).damage;
+        _player.baseMaxHealth = GetClassData(playerClass).health;
+        _player.basePlayerDamage = GetClassData(playerClass).damage;
         _player.walkSpeed = GetClassData(playerClass).walkSpeed;
         _player.sprintSpeed = GetClassData(playerClass).sprintSpeed;
         _player.dashSpeed = GetClassData(playerClass).dashSpeed;
-        _player.playerAttackSpeed = GetClassData(playerClass).attackSpeed;
+        _player.basePlayerAttackSpeed = GetClassData(playerClass).attackSpeed;
         _combatSystem.bulletSpeed = GetClassData(playerClass).bulletSpeed;
         _combatSystem.playerClass = playerClass;
     }
@@ -280,7 +280,7 @@ public class Level : Singleton<Level>
                 blockImage.gameObject.SetActive(false);
         }
         
-        if(_player.playerDamage >= GetClassData(_combatSystem.playerClass).damageLimit)
+        if(_player.basePlayerDamage >= GetClassData(_combatSystem.playerClass).damageLimit)
         {
             foreach (var blockImage in blockImage.damageBlockImages)
                 blockImage.gameObject.SetActive(true);
@@ -291,7 +291,7 @@ public class Level : Singleton<Level>
                 blockImage.gameObject.SetActive(false);
         }
         
-        if(_player.playerAttackSpeed <= GetClassData(_combatSystem.playerClass).attackSpeedLimit)
+        if(_player.basePlayerAttackSpeed <= GetClassData(_combatSystem.playerClass).attackSpeedLimit)
         {
             foreach (var blockImage in blockImage.attackSpeedBlockImages)
                 blockImage.gameObject.SetActive(true);
@@ -330,8 +330,8 @@ public class Level : Singleton<Level>
         playerStatus.statusText.text =
             $"Class : {_combatSystem.playerClass} \n" +
             $"Level : {playerLevel} \n" +
-            $"Damage : {_player.playerDamage:F2} \n" +
-            $"Attack Speed : {_player.playerAttackSpeed:F2} \n" +
+            $"Damage : {_player.PlayerDamage:F2} \n" +
+            $"Attack Speed : {_player.PlayerAttackSpeed:F2} \n" +
             $"Speed : {_player.sprintSpeed:F2} \n" +
             $"Dash Speed : {_player.dashSpeed:F2} \n";
         
@@ -361,24 +361,24 @@ public class Level : Singleton<Level>
         lootChest.healthButton.onClick.AddListener(() =>
         {
             lootChestPickPoint--;
-            _player.maxHealth += lootChestData.upgradeHealth;
+            _player.baseMaxHealth += lootChestData.upgradeHealth;
             _player.health += lootChestData.upgradeHealth;
-            _player.maxHealth = Mathf.Clamp(_player.maxHealth, 0, GetClassData(_combatSystem.playerClass).maxHpLimit);
-            _player.health = Mathf.Clamp(_player.health, 0, _player.maxHealth);
+            _player.baseMaxHealth = Mathf.Clamp(_player.baseMaxHealth, 0, GetClassData(_combatSystem.playerClass).maxHpLimit);
+            _player.health = Mathf.Clamp(_player.health, 0, _player.baseMaxHealth);
         });
 
         lootChest.damageButton.onClick.AddListener(() =>
         {
             lootChestPickPoint--;
-            _player.playerDamage += lootChestData.upgradeDamage;
-            _player.playerDamage = Mathf.Clamp(_player.playerDamage, 0, GetClassData(_combatSystem.playerClass).damageLimit);
+            _player.basePlayerDamage += lootChestData.upgradeDamage;
+            _player.basePlayerDamage = Mathf.Clamp(_player.basePlayerDamage, 0, GetClassData(_combatSystem.playerClass).damageLimit);
         });
 
         lootChest.attackSpeedButton.onClick.AddListener(() =>
         {
             lootChestPickPoint--;
-            _player.playerAttackSpeed -= lootChestData.upgradeAttackSpeed;
-            _player.playerAttackSpeed = Mathf.Clamp(_player.playerAttackSpeed, GetClassData(_combatSystem.playerClass).attackSpeedLimit, 5);
+            _player.basePlayerAttackSpeed -= lootChestData.upgradeAttackSpeed;
+            _player.basePlayerAttackSpeed = Mathf.Clamp(_player.basePlayerAttackSpeed, GetClassData(_combatSystem.playerClass).attackSpeedLimit, 5);
         });
 
         lootChest.speedButton.onClick.AddListener(() =>
@@ -417,24 +417,24 @@ public class Level : Singleton<Level>
         
         playerLevelUp.healthButton.onClick.AddListener(() =>
         {
-            _player.maxHealth += GetClassData(_combatSystem.playerClass).upgradeHealth;
+            _player.baseMaxHealth += GetClassData(_combatSystem.playerClass).upgradeHealth;
             _player.health += GetClassData(_combatSystem.playerClass).upgradeHealth;
-            _player.maxHealth = Mathf.Clamp(_player.maxHealth, 0, GetClassData(_combatSystem.playerClass).maxHpLimit);
-            _player.health = Mathf.Clamp(_player.health, 0, _player.maxHealth);
+            _player.baseMaxHealth = Mathf.Clamp(_player.baseMaxHealth, 0, GetClassData(_combatSystem.playerClass).maxHpLimit);
+            _player.health = Mathf.Clamp(_player.health, 0, _player.baseMaxHealth);
             playerLevelUpPoint--;
         });
 
         playerLevelUp.damageButton.onClick.AddListener(() =>
         {
-            _player.playerDamage += GetClassData(_combatSystem.playerClass).upgradeDamage;
-            _player.playerDamage = Mathf.Clamp(_player.playerDamage, 0, GetClassData(_combatSystem.playerClass).damageLimit);
+            _player.basePlayerDamage += GetClassData(_combatSystem.playerClass).upgradeDamage;
+            _player.basePlayerDamage = Mathf.Clamp(_player.basePlayerDamage, 0, GetClassData(_combatSystem.playerClass).damageLimit);
             playerLevelUpPoint--;
         });
 
         playerLevelUp.attackSpeedButton.onClick.AddListener(() =>
         {
-            _player.playerAttackSpeed -= GetClassData(_combatSystem.playerClass).upgradeAttackSpeed;
-            _player.playerAttackSpeed = Mathf.Clamp(_player.playerAttackSpeed, GetClassData(_combatSystem.playerClass).attackSpeedLimit, 5);
+            _player.basePlayerAttackSpeed -= GetClassData(_combatSystem.playerClass).upgradeAttackSpeed;
+            _player.basePlayerAttackSpeed = Mathf.Clamp(_player.basePlayerAttackSpeed, GetClassData(_combatSystem.playerClass).attackSpeedLimit, 5);
             playerLevelUpPoint--;
         });
 

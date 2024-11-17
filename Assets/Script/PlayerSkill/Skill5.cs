@@ -10,12 +10,12 @@ public class Skill5 : SkillBase
     
     protected override void SkillAction()
     {
-        _firstBulletSpeedAttack = player.playerAttackSpeed;
-        player.playerAttackSpeed /= 2f;
+        _firstBulletSpeedAttack = player.basePlayerAttackSpeed;
+        player.basePlayerAttackSpeed /= 2f;
     }
 
     private void OnDestroy()
     {
-        player.playerAttackSpeed = _firstBulletSpeedAttack;
+        player.basePlayerAttackSpeed = _firstBulletSpeedAttack;
     }
 }

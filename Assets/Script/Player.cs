@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : Singleton<Player>
@@ -14,12 +15,19 @@ public class Player : Singleton<Player>
     private Color _defaultSpriteColor;
 
     [Header("Player Stats")] 
-    public float maxHealth;
+    public float baseMaxHealth;
     [SerializeField] private float maxStamina;
     [SerializeField] private float staminaRegen;
-    public float playerAttackSpeed;
-    public float playerDamage;
+    public float PlayerAttackSpeed => basePlayerAttackSpeed + playerAttackSpeedBuff;
+    public float PlayerDamage => basePlayerDamage + playerDamageBuff;
+    public float MaxHealth => baseMaxHealth + maxHealthBuff;
+    
+    public float basePlayerAttackSpeed;
+    public float basePlayerDamage;
     public float health;
+    [HideInInspector] public float playerAttackSpeedBuff;
+    [HideInInspector] public float playerDamageBuff;
+    [HideInInspector] public float maxHealthBuff;
     private float _stamina;
     public bool isImmune;
     
@@ -66,7 +74,7 @@ public class Player : Singleton<Player>
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _defaultSpriteColor = _spriteRenderer.color;
         playerTransform = transform.GetChild(0);
-        health = maxHealth;
+        health = MaxHealth;
         _stamina = maxStamina;
         _currentSpeed = walkSpeed;
     }
@@ -77,7 +85,7 @@ public class Player : Singleton<Player>
         CameraFollowPlayer();
         PlayerMovementHandle();
         PlayerBarUpdate();
-        health = Mathf.Clamp(health, 0, maxHealth);
+        health = Mathf.Clamp(health, 0, MaxHealth);
     }
     
     private IEnumerator Dash()
@@ -201,8 +209,8 @@ public class Player : Singleton<Player>
         healthBar.value = 0;
         staminaBar.size = _stamina / maxStamina;
         staminaText.text = $"{_stamina:F0} / {maxStamina}";
-        healthBar.size = health / maxHealth;
-        healthText.text = $"{health:F0} / {maxHealth}";
+        healthBar.size = health / MaxHealth;
+        healthText.text = $"{health:F0} / {MaxHealth}";
     }
     
     private bool MovementConditionCheck(PlayerMovementStatus movementStatus)
