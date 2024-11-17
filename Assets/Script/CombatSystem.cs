@@ -1,14 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Button = UnityEngine.UI.Button;
-using Image = UnityEngine.UI.Image;
 
-public class CombatSystem : MonoBehaviour
+public class CombatSystem : Singleton<CombatSystem>
 {
     #region Declare Variables
     [Header("Bullet Type")]

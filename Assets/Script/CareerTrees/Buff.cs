@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Buff", menuName = "ScriptableObjects/Buff")]
-public abstract class Buff : ScriptableObject
+public abstract class Buff : MonoBehaviour
 {
     [SerializeField] private string buffName;
     [SerializeField] private PlayerStats buffStats;

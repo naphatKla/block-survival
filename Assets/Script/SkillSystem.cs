@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillSystem : MonoBehaviour
+public class SkillSystem : Singleton<SkillSystem>
 {
     [SerializeField] public List<SkillBase> skills;
     [SerializeField] public GameObject playerHelperSkill;
