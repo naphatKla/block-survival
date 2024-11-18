@@ -74,8 +74,7 @@ public class Career : MonoBehaviour
         IsUnlocked = true;
         careerLeft?.SetCanUnlock(true);
         careerRight?.SetCanUnlock(true);
-        CareerManager.Instance.SetCurrentCareer(this);
-
+        
         if (!careerParent) return;
         if (careerParent.careerLeft && this == careerParent.careerLeft)
         {
@@ -87,6 +86,8 @@ public class Career : MonoBehaviour
             careerParent.careerLeft?.SetCanUnlock(false);
             CareerManager.savedUnlockPath.Enqueue(1); // 1 means right
         }
+        
+        CareerManager.Instance.SetCurrentCareer(this);
     }
     
     public Career GetParent()

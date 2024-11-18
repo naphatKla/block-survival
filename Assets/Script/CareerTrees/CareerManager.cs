@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using DG.Tweening;
 using MoreMountains.Tools;
 using Sirenix.OdinInspector;
@@ -8,38 +9,28 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public class CareerSaveData
+{
+    public List<int> savedUnlockPath = new List<int>();
+    public bool isCareerTreeUnlocked = false;
+    public PlayerStats sumOfStats = new PlayerStats();
+    public List<Buff> sumOfBuffs = new List<Buff>();
+}
+
 public class CareerManager : PersistentSingleton<CareerManager>
 {
     public static Queue<int> savedUnlockPath = new Queue<int>();
     private static bool isCareerTreeUnlocked = false;
     private static PlayerStats sumOfStats = new PlayerStats();
     private static List<Buff> sumOfBuffs = new List<Buff>();
+    private string savePath => Path.Combine(Application.persistentDataPath, "CareerSaveData.json");
     
     private Career _currentCareer;
     private Career _rootCareer;
     
-    void Start()
+    void Awake()
     {
-      
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
-    
-    [Button]
-    public void TestChangeSceneToGameplay()
-    {
-        SceneManager.LoadScene("GamePlayShaoKuyToMobile");
-    }
-
-    [Button]
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene("Scenes/Career/TestCareer");
+        LoadSaveData();
     }
     
     public void SetRootCareer(Career rootCareer)
@@ -50,12 +41,14 @@ public class CareerManager : PersistentSingleton<CareerManager>
     public void SetCurrentCareer(Career currentCareer)
     {
         _currentCareer = currentCareer;
+        // save data
         sumOfStats.health += _currentCareer.GetStats().health;
         sumOfStats.attackDamage += _currentCareer.GetStats().attackDamage;
         sumOfStats.attackSpeed += _currentCareer.GetStats().attackSpeed;
         sumOfStats.movementSpeed += _currentCareer.GetStats().movementSpeed;
         sumOfBuffs.AddRange(_currentCareer.GetBuffs());
         isCareerTreeUnlocked = true;
+        SaveCareerData();
     }
     
     private int CountAllCareerEffect(Career career)
@@ -89,6 +82,30 @@ public class CareerManager : PersistentSingleton<CareerManager>
         StartCoroutine(LoadSave());
     }
 
+    private void SaveCareerData()
+    {
+        CareerSaveData saveData = new CareerSaveData();
+        saveData.savedUnlockPath = new List<int>(savedUnlockPath);
+        saveData.isCareerTreeUnlocked = isCareerTreeUnlocked;
+        saveData.sumOfStats = sumOfStats;
+        saveData.sumOfBuffs = sumOfBuffs;
+        
+        string json = JsonUtility.ToJson(saveData);
+        File.WriteAllText(savePath, json); 
+        Debug.Log("Game Data Saved to: " + savePath);
+    }
+
+    private void LoadSaveData()
+    {
+        if (!File.Exists(savePath)) return;
+        string json = File.ReadAllText(savePath);
+        CareerSaveData saveData = JsonUtility.FromJson<CareerSaveData>(json);
+        savedUnlockPath = new Queue<int>(saveData.savedUnlockPath);
+        isCareerTreeUnlocked = saveData.isCareerTreeUnlocked;
+        sumOfStats = saveData.sumOfStats;
+        sumOfBuffs = saveData.sumOfBuffs;
+    }
+    
     private IEnumerator LoadSave()
     {
         yield return new WaitForNextFrameUnit();
@@ -160,6 +177,27 @@ public class CareerManager : PersistentSingleton<CareerManager>
             Debug.Log(buff.GetBuffName());
         }
         Debug.Log("====================================");
+    }
+    [Button(ButtonSizes.Medium), GUIColor("red")]
+    public void DeleteAllSaveData()
+    {
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+            Debug.Log("Delete Save Data");
+        }
+    }
+    
+    [PropertySpace(SpaceBefore = 15f)] [Button]
+    public void LoadSceneToGameplay()
+    {
+        SceneManager.LoadScene("GamePlayShaoKuyToMobile");
+    }
+
+    [Button]
+    public void LoadSceneToCareerTree()
+    {
+        SceneManager.LoadScene("Scenes/Career/TestCareer");
     }
     #endregion
 }
