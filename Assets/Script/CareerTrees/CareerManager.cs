@@ -11,7 +11,10 @@ using UnityEngine.SceneManagement;
 public class CareerManager : PersistentSingleton<CareerManager>
 {
     public static Queue<int> savedUnlockPath = new Queue<int>();
-    public static bool isCareerTreeUnlocked = false;
+    private static bool isCareerTreeUnlocked = false;
+    private static PlayerStats sumOfStats = new PlayerStats();
+    private static List<Buff> sumOfBuffs = new List<Buff>();
+    
     private Career _currentCareer;
     private Career _rootCareer;
     
@@ -47,47 +50,38 @@ public class CareerManager : PersistentSingleton<CareerManager>
     public void SetCurrentCareer(Career currentCareer)
     {
         _currentCareer = currentCareer;
+        sumOfStats.health += _currentCareer.GetStats().health;
+        sumOfStats.attackDamage += _currentCareer.GetStats().attackDamage;
+        sumOfStats.attackSpeed += _currentCareer.GetStats().attackSpeed;
+        sumOfStats.movementSpeed += _currentCareer.GetStats().movementSpeed;
+        sumOfBuffs.AddRange(_currentCareer.GetBuffs());
+        isCareerTreeUnlocked = true;
     }
     
-    public int CountAllCareerEffect(Career career)
+    private int CountAllCareerEffect(Career career)
     {
         if (_rootCareer == null) return 0;
         if (career == null) return 0;
         return CountAllCareerEffect(career.GetLeftCareer()) + CountAllCareerEffect(career.GetRightCareer()) + 1;
     }
     
-    public int CountActiveCareer(Career career)
+    private int CountActiveCareer(Career career)
     {
         if (_rootCareer == null) return 0;
         if (career == null || _currentCareer == null) return 0;
         return CountActiveCareer(career.GetParent()) + 1;
     }
     
-    public void GetAllActiveCareer(ref List<Career> careers , Career career)
-    {
-        if (_rootCareer == null) return;
-        if (career == null || _currentCareer == null) return;
-        careers.Add(career);
-        GetAllActiveCareer(ref careers, career.GetParent());
-    }
-    
     public void ApplyALlCareerEffect()
     {
-       List<Career> activeCareers = new List<Career>();
-       GetAllActiveCareer(ref activeCareers, _currentCareer);
-       PlayerStats sumStats = new PlayerStats();
-       List<Buff> sumBuffs = new List<Buff>();
+       Player.Instance.AddBuffStats(sumOfStats);
        
-       foreach (Career career in activeCareers)
+       GameObject buffParent = new GameObject("BuffParent");
+       foreach (Buff buff in sumOfBuffs)
        {
-           sumStats.health += career.GetStats().health;
-           sumStats.attackDamage += career.GetStats().attackDamage;
-           sumStats.attackSpeed += career.GetStats().attackSpeed;
-           sumStats.movementSpeed += career.GetStats().movementSpeed;
-           sumBuffs.AddRange(career.GetBuffs());
+           Instantiate(buff).transform.SetParent(buffParent.transform);
        }
-       
-       // Apply to player after this
+       buffParent.transform.SetParent(Player.Instance.transform);
     }
     
     public void LoadSaveCareer()
@@ -105,6 +99,8 @@ public class CareerManager : PersistentSingleton<CareerManager>
         _rootCareer.Unlock();
 
         savedUnlockPath.Clear();
+        sumOfStats = new PlayerStats();
+        sumOfBuffs = new List<Buff>();
         while (unlockPath.Count > 0)
         {
             int path = unlockPath.Dequeue();
@@ -125,55 +121,45 @@ public class CareerManager : PersistentSingleton<CareerManager>
     // DebugFunction ======================================================================================================
     #region DebugFunction
     [Button(ButtonSizes.Medium), DisplayName("CountAllCareer")]
-    public void DebugCountAllCareer()
+    public void LogCountAllCareer()
     {
         if (!Application.isPlaying)
         {
             Debug.LogWarning("This function only works in play mode");
             return;
         }
-        Debug.Log(CountAllCareerEffect(_rootCareer));
+        Debug.Log("All Career Count: "+CountAllCareerEffect(_rootCareer));
+        Debug.Log("====================================");
     }
     
     [Button(ButtonSizes.Medium),DisplayName("CountActiveCareer")]
-    public void DebugCountActiveCareer()
+    public void LogCountActiveCareer()
     {
         if (!Application.isPlaying)
         {
             Debug.LogWarning("This function only works in play mode");
             return;
         }
-        Debug.Log(CountActiveCareer(_currentCareer));
+        Debug.Log("Active Career Count: "+CountActiveCareer(_currentCareer));
+        Debug.Log("====================================");
     }
     
-    [Button(ButtonSizes.Medium),DisplayName("GetAllCareerEffect")]
-    public void DebugApplyALlCareerEffect()
+    [Button(ButtonSizes.Medium),DisplayName("ApplyAllCareerEffect")]
+    public void LogAllCareerEffect()
     {
-        List<Career> activeCareers = new List<Career>();
-        GetAllActiveCareer(ref activeCareers, _currentCareer);
-        PlayerStats sumStats = new PlayerStats();
-        List<Buff> sumBuffs = new List<Buff>();
-       
-        foreach (Career career in activeCareers)
-        {
-            sumStats.health += career.GetStats().health;
-            sumStats.attackDamage += career.GetStats().attackDamage;
-            sumStats.attackSpeed += career.GetStats().attackSpeed;
-            sumStats.movementSpeed += career.GetStats().movementSpeed;
-            sumBuffs.AddRange(career.GetBuffs());
-        }
-        
         if (!Application.isPlaying)
         {
             Debug.LogWarning("This function only works in play mode");
             return;
         }
-        sumStats.PrintStats();
-        Debug.Log("Buffs : " + sumBuffs.Count);
-        foreach (Buff buff in sumBuffs)
+        
+        sumOfStats.PrintStats();
+        Debug.Log("Buffs : " + sumOfBuffs.Count);
+        foreach (Buff buff in sumOfBuffs)
         {
             Debug.Log(buff.GetBuffName());
         }
+        Debug.Log("====================================");
     }
     #endregion
 }

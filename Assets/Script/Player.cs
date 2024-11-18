@@ -82,6 +82,7 @@ public class Player : MonoSingleton<Player>
         health = MaxHealth;
         _stamina = maxStamina;
         _currentSpeed = baseWalkSpeed;
+        CareerManager.Instance.ApplyALlCareerEffect();
     }
     void Update()
     {
@@ -303,6 +304,14 @@ public class Player : MonoSingleton<Player>
     private void ResetSpriteColor()
     {
         _spriteRenderer.color = _defaultSpriteColor;
+    }
+
+    public void AddBuffStats(PlayerStats buffStats)
+    {
+        maxHealthBuff += buffStats.health;
+        playerDamageBuff += buffStats.attackDamage;
+        playerAttackSpeedBuff += buffStats.attackSpeed;
+        walkSpeedBuff += buffStats.movementSpeed;
     }
     #endregion
 }

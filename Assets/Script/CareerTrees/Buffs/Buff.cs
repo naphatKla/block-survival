@@ -53,10 +53,7 @@ public abstract class Buff : MonoBehaviour
                 if (_isEnterFirstTime)
                 {
                     Debug.LogWarning("Enter First Time");
-                    player.maxHealthBuff += buffStats.health;
-                    player.playerDamageBuff += buffStats.attackDamage;
-                    player.playerAttackSpeedBuff += buffStats.attackSpeed;
-                    player.walkSpeedBuff += buffStats.movementSpeed;
+                    player.AddBuffStats(buffStats);
                     _isEnterFirstTime = false;
                     OnStartBuffFirstTime();
                 }
@@ -78,10 +75,7 @@ public abstract class Buff : MonoBehaviour
             if (_isEnterFirstTime)
             {
                 Debug.LogWarning("Enter First Time");
-                player.maxHealthBuff += buffStats.health;
-                player.playerDamageBuff += buffStats.attackDamage;
-                player.playerAttackSpeedBuff += buffStats.attackSpeed;
-                player.walkSpeedBuff += buffStats.movementSpeed;
+                player.AddBuffStats(buffStats);
                 _isEnterFirstTime = false;
                 OnStartBuffFirstTime();
             }

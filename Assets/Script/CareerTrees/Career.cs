@@ -70,11 +70,11 @@ public class Career : MonoBehaviour
     public void Unlock()
     {
         if (!_canUnlock) return;
+        if (IsUnlocked) return;
         IsUnlocked = true;
         careerLeft?.SetCanUnlock(true);
         careerRight?.SetCanUnlock(true);
         CareerManager.Instance.SetCurrentCareer(this);
-        CareerManager.isCareerTreeUnlocked = true;
 
         if (!careerParent) return;
         if (careerParent.careerLeft && this == careerParent.careerLeft)
