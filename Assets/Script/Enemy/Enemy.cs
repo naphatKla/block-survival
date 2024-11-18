@@ -176,7 +176,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage, bool isKnockBack = false, float knockBackForce = 5, float knockBackDuration = 0.1f)
     {
         if(!_hpBar.gameObject.activeSelf) _hpBar.gameObject.SetActive(true);
-        
+        if (damage <= 0) return;
         _currentHp -= damage;
         Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damage,Color.white,1f);
         StartCoroutine(HitColorChange());
@@ -195,7 +195,7 @@ public class Enemy : MonoBehaviour
         float knockBackDuration = 0.1f)
     {
         if(!_hpBar.gameObject.activeSelf) _hpBar.gameObject.SetActive(true);
-        
+        if (maxHp * (percentage/100) <= 0) return;
         _currentHp -= maxHp * (percentage/100);
         Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(maxHp * (percentage/100),Color.white,1f);
         StartCoroutine(HitColorChange());

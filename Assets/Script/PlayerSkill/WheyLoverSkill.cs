@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WheyLoverSkill : SkillBase
 {
-    public float skillDamagePercentage;
+    public float maxHpDmgPercentage;
     protected override void Update()
     {
         base.Update();
@@ -18,7 +19,7 @@ public class WheyLoverSkill : SkillBase
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamagePercentage(skillDamagePercentage, isKnockBack, knockBackForce, knockBackDuration);
+            col.gameObject.GetComponent<Enemy>().TakeDamage(player.MaxHealth*(maxHpDmgPercentage/100), isKnockBack, knockBackForce, knockBackDuration);
         }
     }
 }

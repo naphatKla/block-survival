@@ -221,7 +221,7 @@ public class Player : MonoSingleton<Player>
         staminaBar.size = _stamina / maxStamina;
         staminaText.text = $"{_stamina:F0} / {maxStamina}";
         healthBar.size = health / MaxHealth;
-        healthText.text = $"{health:F0} / {MaxHealth}";
+        healthText.text = $"{health:F0} / {MaxHealth:F0}";
     }
     
     private bool MovementConditionCheck(PlayerMovementStatus movementStatus)

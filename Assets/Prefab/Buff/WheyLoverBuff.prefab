@@ -80,7 +80,7 @@ MonoBehaviour:
   currentAttackCooldown: 0
   player: {fileID: 0}
   isCooldown: 0
-  skillDamagePercentage: 2.5
+  maxHpDmgPercentage: 2.5
 --- !u!61 &530955917
 BoxCollider2D:
   m_ObjectHideFlags: 0
