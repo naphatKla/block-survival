@@ -47,7 +47,7 @@ MonoBehaviour:
   buffName: We Go Full Body
   buffStats:
     health: 0
-    attackDamage: 3
+    attackDamage: 0
     attackSpeed: 0
     movementSpeed: 0
   hasLifetime: 0

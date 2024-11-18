@@ -47,9 +47,9 @@ MonoBehaviour:
   buffName: One Above All
   buffStats:
     health: 0
-    attackDamage: 13
+    attackDamage: 0
     attackSpeed: 0
-    movementSpeed: 2
+    movementSpeed: 0
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

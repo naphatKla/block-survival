@@ -19,8 +19,10 @@ public class Player : Singleton<Player>
     [SerializeField] private float maxStamina;
     [SerializeField] private float staminaRegen;
     public float PlayerAttackSpeed => basePlayerAttackSpeed + playerAttackSpeedBuff;
-    public float PlayerDamage => basePlayerDamage + playerDamageBuff;
-    public float MaxHealth => baseMaxHealth + maxHealthBuff;
+    [HideInInspector] public float damageMultiplier = 1f;
+    [HideInInspector] public float maxHealthMultiplier = 1f;
+    public float PlayerDamage => (basePlayerDamage + playerDamageBuff) * damageMultiplier;
+    public float MaxHealth => (baseMaxHealth + maxHealthBuff) * maxHealthMultiplier;
     
     public float basePlayerAttackSpeed;
     public float basePlayerDamage;

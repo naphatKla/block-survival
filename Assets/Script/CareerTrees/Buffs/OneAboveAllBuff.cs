@@ -6,7 +6,7 @@ public class OneAboveAllBuff : Buff
 {
     public override void OnStartBuffFirstTime()
     {
-        
+        player.playerDamageBuff += 8f;
     }
 
     public override void OnStartBuff()

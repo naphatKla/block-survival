@@ -9,17 +9,8 @@ public class WeGoFullBodyBuff : Buff
     private float playerDamageBuffTemp;
     public override void OnStartBuffFirstTime()
     {
-        playerMaxHealthTemp = player.baseMaxHealth;
-        player.maxHealthBuff += -(player.baseMaxHealth * 0.35f); // reduce 35% of max health
-        playerMaxHealthBuffTemp = -(player.baseMaxHealth * 0.35f);
-
-        playerDamageTemp = player.basePlayerDamage;
-        player.playerDamageBuff += player.basePlayerDamage * 0.25f; // increase 25% of damage
-        playerDamageBuffTemp = player.basePlayerDamage * 0.25f;
-        Debug.Log("Enter Buff: We Go Full Body");
-        Debug.Log($"Base HP: {player.baseMaxHealth} : Buff HP: {player.maxHealthBuff} : Result : {player.MaxHealth}");
-        Debug.Log($"Base DMG: {player.basePlayerDamage} : Buff DMG: {player.playerDamageBuff} : Result : {player.PlayerDamage}");
-        Debug.Log("=====================================");
+        player.damageMultiplier += 0.25f;
+        player.maxHealthMultiplier -= 0.35f;
     }
 
     public override void OnStartBuff()
@@ -29,31 +20,7 @@ public class WeGoFullBodyBuff : Buff
 
     public override void OnUpdateBuff()
     {
-        if (Math.Abs(playerMaxHealthTemp - player.baseMaxHealth) > 0.1f)
-        {
-            playerMaxHealthTemp = player.baseMaxHealth;
-            player.maxHealthBuff -= playerMaxHealthBuffTemp;
-            player.maxHealthBuff += -(player.baseMaxHealth * 0.35f); // reduce 35% of max health
-            playerMaxHealthBuffTemp = -(player.baseMaxHealth * 0.35f);
-            
-            Debug.Log("Update Buff: We Go Full Body");
-            Debug.Log($"Base HP: {player.baseMaxHealth} : Buff HP: {player.maxHealthBuff} : Result : {player.MaxHealth}");
-            Debug.Log($"Base DMG: {player.basePlayerDamage} : Buff DMG: {player.playerDamageBuff} : Result : {player.PlayerDamage}");
-            Debug.Log("=====================================");
-        }
-        
-        if (Math.Abs(playerDamageTemp - player.basePlayerDamage) > 0.1f)
-        {
-            playerDamageTemp = player.basePlayerDamage;
-            player.playerDamageBuff -= playerDamageBuffTemp;
-            player.playerDamageBuff += player.basePlayerDamage * 0.25f; // increase 25% of damage
-            playerDamageBuffTemp = player.basePlayerDamage * 0.25f;
-            
-            Debug.Log("Update Buff: We Go Full Body");
-            Debug.Log($"Base HP: {player.baseMaxHealth} : Buff HP: {player.maxHealthBuff} : Result : {player.MaxHealth}");
-            Debug.Log($"Base DMG: {player.basePlayerDamage} : Buff DMG: {player.playerDamageBuff} : Result : {player.PlayerDamage}");
-            Debug.Log("=====================================");
-        }
+
     }
 
     public override void OnEndBuff()
