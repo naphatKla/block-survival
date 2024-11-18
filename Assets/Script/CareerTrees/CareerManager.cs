@@ -65,6 +65,14 @@ public class CareerManager : PersistentSingleton<CareerManager>
         return CountActiveCareer(career.GetParent()) + 1;
     }
     
+    public void GetAllActiveCareer(ref List<Career> careers , Career career)
+    {
+        if (_rootCareer == null) return;
+        if (career == null || _currentCareer == null) return;
+        careers.Add(career);
+        GetAllActiveCareer(ref careers, career.GetParent());
+    }
+    
     public void ApplyALlCareerEffect()
     {
        Player.Instance.AddBuffStats(sumOfStats);
@@ -138,7 +146,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
     // DebugFunction ======================================================================================================
     #region DebugFunction
     [Button(ButtonSizes.Medium), DisplayName("CountAllCareer")]
-    public void LogCountAllCareer()
+    private void LogCountAllCareer()
     {
         if (!Application.isPlaying)
         {
@@ -150,7 +158,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
     }
     
     [Button(ButtonSizes.Medium),DisplayName("CountActiveCareer")]
-    public void LogCountActiveCareer()
+    private void LogCountActiveCareer()
     {
         if (!Application.isPlaying)
         {
@@ -162,7 +170,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
     }
     
     [Button(ButtonSizes.Medium),DisplayName("ApplyAllCareerEffect")]
-    public void LogAllCareerEffect()
+    private void LogAllCareerEffect()
     {
         if (!Application.isPlaying)
         {
@@ -178,8 +186,26 @@ public class CareerManager : PersistentSingleton<CareerManager>
         }
         Debug.Log("====================================");
     }
-    [Button(ButtonSizes.Medium), GUIColor("red")]
-    public void DeleteAllSaveData()
+
+    [FoldoutGroup("DangerZone")] [Button(ButtonSizes.Medium), GUIColor("red")]
+    private void ResetAllCareer()
+    {
+        List<Career> activeCareers = new List<Career>();
+        GetAllActiveCareer(ref activeCareers, _currentCareer);
+        foreach (Career career in activeCareers)
+        {
+            career.Reset();
+        }
+        _currentCareer = null;
+        sumOfStats = new PlayerStats();
+        sumOfBuffs = new List<Buff>();
+        isCareerTreeUnlocked = false;
+        savedUnlockPath.Clear();
+        SaveCareerData();
+    }
+    
+    [FoldoutGroup("DangerZone")] [Button(ButtonSizes.Medium), GUIColor("red")]
+    private void DeleteAllSaveData()
     {
         if (File.Exists(savePath))
         {
@@ -189,13 +215,13 @@ public class CareerManager : PersistentSingleton<CareerManager>
     }
     
     [PropertySpace(SpaceBefore = 15f)] [Button]
-    public void LoadSceneToGameplay()
+    private void LoadSceneToGameplay()
     {
         SceneManager.LoadScene("GamePlayShaoKuyToMobile");
     }
 
     [Button]
-    public void LoadSceneToCareerTree()
+    private void LoadSceneToCareerTree()
     {
         SceneManager.LoadScene("Scenes/Career/TestCareer");
     }

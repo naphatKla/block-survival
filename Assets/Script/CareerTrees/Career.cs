@@ -46,7 +46,6 @@ public class Career : MonoBehaviour
     {
         if (careerParent) return; 
         _canUnlock = true; // if it's root career
-        Debug.Log(CareerManager.Instance);
         CareerManager.Instance.SetRootCareer(this);
     }
 
@@ -74,20 +73,32 @@ public class Career : MonoBehaviour
         IsUnlocked = true;
         careerLeft?.SetCanUnlock(true);
         careerRight?.SetCanUnlock(true);
-        
-        if (!careerParent) return;
-        if (careerParent.careerLeft && this == careerParent.careerLeft)
+
+        // if it's not root career
+        if (careerParent)
         {
-            careerParent.careerRight?.SetCanUnlock(false);
-            CareerManager.savedUnlockPath.Enqueue(0); // 0 means left
-        }
-        else if (careerParent.careerRight && this == careerParent.careerRight)
-        {
-            careerParent.careerLeft?.SetCanUnlock(false);
-            CareerManager.savedUnlockPath.Enqueue(1); // 1 means right
+            if (careerParent.careerLeft && this == careerParent.careerLeft)
+            {
+                careerParent.careerRight?.SetCanUnlock(false);
+                CareerManager.savedUnlockPath.Enqueue(0); // 0 means left
+            }
+            else if (careerParent.careerRight && this == careerParent.careerRight)
+            {
+                careerParent.careerLeft?.SetCanUnlock(false);
+                CareerManager.savedUnlockPath.Enqueue(1); // 1 means right
+            }
         }
         
         CareerManager.Instance.SetCurrentCareer(this);
+    }
+
+    public void Reset()
+    {
+        IsUnlocked = false;
+        _canUnlock = false;
+        if (careerParent) return; 
+        _canUnlock = true; // if it's root career
+        CareerManager.Instance.SetRootCareer(this);
     }
     
     public Career GetParent()
