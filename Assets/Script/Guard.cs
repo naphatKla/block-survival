@@ -9,6 +9,7 @@ public class Guard : MonoBehaviour
     [SerializeField] private float _guardHp;
     [SerializeField] private ParticleSystem guardHitEffect;
     [SerializeField] private ParticleSystem guardBreakEffect;
+    [SerializeField] private DamageText damageText;
     private Vector3 _startScale;
 
     void Start()
@@ -35,6 +36,7 @@ public class Guard : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _guardHp -= damage;
+        Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damage,Color.gray,1f);
         ParticleEffectManager.Instance.PlayParticleEffect(guardHitEffect,transform.position);
         if (_guardHp <= 0)
         {

@@ -81,11 +81,11 @@ public class CareerManager : PersistentSingleton<CareerManager>
        Player.Instance.AddBuffStats(sumOfStats);
        
        GameObject buffParent = new GameObject("BuffParent");
+       buffParent.transform.SetParent(Player.Instance.transform);
        foreach (Buff buff in sumOfBuffs)
        {
-           Instantiate(buff).transform.SetParent(buffParent.transform);
+           Instantiate(buff).gameObject.transform.SetParent(buffParent.transform);
        }
-       buffParent.transform.SetParent(Player.Instance.transform);
     }
     
     public void LoadSaveCareer()

@@ -3,10 +3,6 @@ using UnityEngine;
 
 public class WeGoFullBodyBuff : Buff
 {
-    private float playerMaxHealthTemp;
-    private float playerDamageTemp;
-    private float playerMaxHealthBuffTemp;
-    private float playerDamageBuffTemp;
     public override void OnStartBuffFirstTime()
     {
         player.damageMultiplier += 0.25f;

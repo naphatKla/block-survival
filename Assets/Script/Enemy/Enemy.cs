@@ -116,7 +116,6 @@ public class Enemy : MonoBehaviour
         if (!col.gameObject.CompareTag("Player")) return;
         Player player = col.gameObject.GetComponent<Player>();    
         Vector2 direction = (player.transform.position - transform.position).normalized;
-        Instantiate(damageText, col.transform.position, Quaternion.identity).InitializeText(attackDamage,Color.red,1f);
         player.TakeDamage(attackDamage,true,direction,10f);
     }
 
@@ -176,11 +175,29 @@ public class Enemy : MonoBehaviour
     
     public void TakeDamage(float damage, bool isKnockBack = false, float knockBackForce = 5, float knockBackDuration = 0.1f)
     {
-       
         if(!_hpBar.gameObject.activeSelf) _hpBar.gameObject.SetActive(true);
         
         _currentHp -= damage;
+        Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damage,Color.white,1f);
+        StartCoroutine(HitColorChange());
+        
+        if (isKnockBack)
+            StartCoroutine(KnockBack(knockBackForce,knockBackDuration));
+        
+        if (_currentHp <= 0)
+        {
+            ParticleEffectManager.Instance.PlayParticleEffect(deadParticleSystem,transform.position);
+            Destroy(gameObject);
+        }
+    }
 
+    public void TakeDamagePercentage(float percentage, bool isKnockBack = false, float knockBackForce = 5,
+        float knockBackDuration = 0.1f)
+    {
+        if(!_hpBar.gameObject.activeSelf) _hpBar.gameObject.SetActive(true);
+        
+        _currentHp -= maxHp * (percentage/100);
+        Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(maxHp * (percentage/100),Color.white,1f);
         StartCoroutine(HitColorChange());
         
         if (isKnockBack)

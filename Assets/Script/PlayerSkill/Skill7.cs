@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Skill7 : SkillBase
 {
-
+    public bool immuneOnUse = true;
     protected override void Update()
     {
         base.Update();
-        player.isImmune = true;
+        player.isImmune = immuneOnUse;
     }
     protected override void SkillAction()
     {

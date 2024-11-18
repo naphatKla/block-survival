@@ -6,7 +6,6 @@ using UnityEngine;
 public class Explode : MonoBehaviour
 {
     [SerializeField] public float destroyTime;
-    [SerializeField] private DamageText damageText;
     private Player _player;
     void Start()
     {
@@ -30,7 +29,6 @@ public class Explode : MonoBehaviour
                 Enemy _enemy = col.gameObject.GetComponent<Enemy>();
                 if(_enemy == null) return;
                 _enemy.TakeDamage(_player.PlayerDamage/2);
-                Instantiate(damageText, col.transform.position, Quaternion.identity).InitializeText((_player.PlayerDamage/2),Color.white,1f);
             }
             catch (Exception e)
             {

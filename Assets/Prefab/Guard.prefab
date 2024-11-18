@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 341671377
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 16da53ea2beab0340b19062fb47dd9a5, type: 3}
   m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
@@ -128,3 +128,4 @@ MonoBehaviour:
   _guardHp: 50
   guardHitEffect: {fileID: 5428073676247933741, guid: 0d0d7050e931dab45b8c03028f609faa, type: 3}
   guardBreakEffect: {fileID: 5082438276172502402, guid: d7dc203211462bb45b64c6ee80389e91, type: 3}
+  damageText: {fileID: 1540198057, guid: 42901af67379c5641ba7f5cc069ebc63, type: 3}

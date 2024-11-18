@@ -4,7 +4,6 @@ using UnityEngine;
 public abstract class Buff : MonoBehaviour
 {
     [SerializeField] private string buffName;
-    [SerializeField] private PlayerStats buffStats;
     [SerializeField] private bool hasLifetime;
     [SerializeField] private bool hasCooldown;
     [ShowIf(nameof(hasLifetime))] [SerializeField] private float buffDuration;
@@ -53,7 +52,6 @@ public abstract class Buff : MonoBehaviour
                 if (_isEnterFirstTime)
                 {
                     Debug.LogWarning("Enter First Time");
-                    player.AddBuffStats(buffStats);
                     _isEnterFirstTime = false;
                     OnStartBuffFirstTime();
                 }
@@ -75,7 +73,6 @@ public abstract class Buff : MonoBehaviour
             if (_isEnterFirstTime)
             {
                 Debug.LogWarning("Enter First Time");
-                player.AddBuffStats(buffStats);
                 _isEnterFirstTime = false;
                 OnStartBuffFirstTime();
             }

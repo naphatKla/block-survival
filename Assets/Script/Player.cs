@@ -12,6 +12,7 @@ public class Player : MonoSingleton<Player>
     [Header("Component")] 
     [SerializeField] public Rigidbody2D playerRigidbody2D;
     [SerializeField] private TrailRenderer trailEffect;
+    [SerializeField] private DamageText damageText;
     private SpriteRenderer _spriteRenderer;
     private Color _defaultSpriteColor;
 
@@ -31,6 +32,7 @@ public class Player : MonoSingleton<Player>
     [HideInInspector] public float playerAttackSpeedBuff;
     [HideInInspector] public float playerDamageBuff;
     [HideInInspector] public float maxHealthBuff;
+    [HideInInspector] public float damageReductionPercentage;
     private float _stamina;
     public bool isImmune;
     
@@ -267,7 +269,9 @@ public class Player : MonoSingleton<Player>
     public void TakeDamage(float damage)
     {
         if(isImmune) return;
-        health -= damage;
+        float damageApply = damage - (damage * (damageReductionPercentage/100));
+        health -= damageApply;
+        Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damageApply,Color.red,1f);
         getHitSoundEffect.Play();
         _spriteRenderer.color = Color.red - new Color(0,0,0,0.5f);
         Invoke(nameof(ResetSpriteColor),0.1f);
@@ -281,10 +285,11 @@ public class Player : MonoSingleton<Player>
     public void TakeDamage(float damage, bool isKnockBack,Vector2 knockDirection ,  float knockBackForce = 5, float knockBackDuration = 0.1f)
     {
         if(isImmune) return;
-        
-        if (damage > 0)
+        float damageApply = damage - (damage * (damageReductionPercentage/100));
+        if (damageApply > 0)
         {
-            health -= damage;
+            health -= damageApply;
+            Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damageApply,Color.red,1f);
             getHitSoundEffect.Play();
             _spriteRenderer.color = new Color(1, 0.16f, 0, 0.5f);
             Invoke(nameof(ResetSpriteColor),0.1f);
