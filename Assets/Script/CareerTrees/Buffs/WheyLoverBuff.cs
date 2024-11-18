@@ -3,6 +3,7 @@ public class WheyLoverBuff : Buff
     public override void OnStartBuffFirstTime()
     {
         player.maxHealthMultiplier += 0.15f;
+        player.health = player.MaxHealth;
         player.playerDamageBuff -= 2f;
         player.damageReductionPercentage += 5f;
     }

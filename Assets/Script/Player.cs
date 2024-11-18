@@ -25,6 +25,7 @@ public class Player : MonoSingleton<Player>
     [HideInInspector] public float maxHealthMultiplier = 1f;
     public float PlayerDamage => (basePlayerDamage + playerDamageBuff) * damageMultiplier;
     public float MaxHealth => (baseMaxHealth + maxHealthBuff) * maxHealthMultiplier;
+    public float CurrentHPPercentage => health / MaxHealth;
     
     public float basePlayerAttackSpeed;
     public float basePlayerDamage;
@@ -76,15 +77,17 @@ public class Player : MonoSingleton<Player>
     #endregion
     
     #region Unity Method
+    
     void Start()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _defaultSpriteColor = _spriteRenderer.color;
         playerTransform = transform.GetChild(0);
+        CareerManager.Instance.ApplyALlCareerEffect();
+        
         health = MaxHealth;
         _stamina = maxStamina;
         _currentSpeed = baseWalkSpeed;
-        CareerManager.Instance.ApplyALlCareerEffect();
     }
     void Update()
     {

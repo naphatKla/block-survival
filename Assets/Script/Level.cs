@@ -210,8 +210,8 @@ public class Level : MonoSingleton<Level>
 
     public void SetPlayerClass(CombatSystem.PlayerClass playerClass)
     {
-        _player.health = GetClassData(playerClass).health;
         _player.baseMaxHealth = GetClassData(playerClass).health;
+        _player.health = _player.MaxHealth;
         _player.basePlayerDamage = GetClassData(playerClass).damage;
         _player.baseWalkSpeed = GetClassData(playerClass).walkSpeed;
         _player.sprintSpeed = GetClassData(playerClass).sprintSpeed;
@@ -270,7 +270,7 @@ public class Level : MonoSingleton<Level>
     
     private void CheckPlayerStats()
     {
-        if (_player.health >= GetClassData(_combatSystem.playerClass).maxHpLimit)
+        if (_player.baseMaxHealth >= GetClassData(_combatSystem.playerClass).maxHpLimit)
         {
             foreach (var blockImage in blockImage.hpBlockImages)
                 blockImage.gameObject.SetActive(true);
@@ -362,10 +362,12 @@ public class Level : MonoSingleton<Level>
         lootChest.healthButton.onClick.AddListener(() =>
         {
             lootChestPickPoint--;
+            float maxHealthBeforeUpgrade = _player.MaxHealth;
             _player.baseMaxHealth += lootChestData.upgradeHealth;
-            _player.health += lootChestData.upgradeHealth;
+            float diff = _player.MaxHealth - maxHealthBeforeUpgrade;
+            _player.health += diff;
             _player.baseMaxHealth = Mathf.Clamp(_player.baseMaxHealth, 0, GetClassData(_combatSystem.playerClass).maxHpLimit);
-            _player.health = Mathf.Clamp(_player.health, 0, _player.baseMaxHealth);
+            _player.health = Mathf.Clamp(_player.health, 0, _player.MaxHealth);
         });
 
         lootChest.damageButton.onClick.AddListener(() =>
@@ -418,10 +420,12 @@ public class Level : MonoSingleton<Level>
         
         playerLevelUp.healthButton.onClick.AddListener(() =>
         {
+            float maxHealthBeforeChange = _player.MaxHealth;
             _player.baseMaxHealth += GetClassData(_combatSystem.playerClass).upgradeHealth;
-            _player.health += GetClassData(_combatSystem.playerClass).upgradeHealth;
+            float diff = _player.MaxHealth - maxHealthBeforeChange;
+            _player.health += diff;
             _player.baseMaxHealth = Mathf.Clamp(_player.baseMaxHealth, 0, GetClassData(_combatSystem.playerClass).maxHpLimit);
-            _player.health = Mathf.Clamp(_player.health, 0, _player.baseMaxHealth);
+            _player.health = Mathf.Clamp(_player.health, 0, _player.MaxHealth);
             playerLevelUpPoint--;
         });
 
