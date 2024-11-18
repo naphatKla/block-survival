@@ -12,6 +12,7 @@ public class BulletEditor : Editor
     private SerializedProperty _bulletDamage;
     private SerializedProperty _bulletOffSetScale;
     private SerializedProperty _destroyTime;
+    private SerializedProperty _damageText;
     
     private void OnEnable()
     {
@@ -21,6 +22,7 @@ public class BulletEditor : Editor
         _bulletDamage = serializedObject.FindProperty("bulletDamage");
         _bulletOffSetScale = serializedObject.FindProperty("bulletOffSetScale");
         _destroyTime = serializedObject.FindProperty("destroyTime");
+        _damageText = serializedObject.FindProperty("damageText");
     }
 
     public override void OnInspectorGUI()
@@ -37,6 +39,7 @@ public class BulletEditor : Editor
         
         if (_bulletType.enumValueIndex.Equals((int)Bullet.BulletType.Player))
             EditorGUILayout.PropertyField(_playerClassData);
+        EditorGUILayout.ObjectField(_damageText);
         serializedObject.ApplyModifiedProperties();
     }
 }

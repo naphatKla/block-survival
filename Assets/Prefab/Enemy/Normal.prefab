@@ -413,6 +413,7 @@ MonoBehaviour:
   attackRange: 7
   maxHp: 10
   attackDamage: 3
+  damageText: {fileID: 1540198057, guid: 42901af67379c5641ba7f5cc069ebc63, type: 3}
   expDrop: 3
   maxSpeed: 5
   minSpeed: 2

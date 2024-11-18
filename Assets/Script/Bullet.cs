@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private BulletType bulletType;
     [SerializeField] private PlayerClassData playerClassData;
+    [SerializeField] private DamageText damageText;
     [SerializeField] public float bulletSpeed;
     [SerializeField] public float bulletDamage;
     [SerializeField] public float bulletOffSetScale;
@@ -51,6 +52,7 @@ public class Bullet : MonoBehaviour
             
                 if(player == null) return;
                 player.TakeDamage(bulletDamage);
+                Instantiate(damageText, col.transform.position, Quaternion.identity).InitializeText(bulletDamage,Color.red,1f);
             }
             return;
         }
@@ -60,6 +62,7 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.CompareTag("Guard") && !bulletType.Equals(BulletType.PlayerHelper))
         {
             col.GetComponent<Guard>().TakeDamage(damage);
+            Instantiate(damageText, col.transform.position, Quaternion.identity).InitializeText(damage,Color.gray,1f);
             Destroy(gameObject);
         }
         
@@ -70,12 +73,17 @@ public class Bullet : MonoBehaviour
                 if(col == null) return;
                 Enemy _enemy = col.gameObject.GetComponent<Enemy>();
                 if(_enemy == null) return;
-                
-                if(_combatSystem.playerClass.Equals(CombatSystem.PlayerClass.Sword) && !bulletType.Equals(BulletType.PlayerHelper) && _enemy.maxHp < 500f)
+
+                if (_combatSystem.playerClass.Equals(CombatSystem.PlayerClass.Sword) &&
+                    !bulletType.Equals(BulletType.PlayerHelper) && _enemy.maxHp < 500f)
+                {
                     _enemy.TakeDamage(damage,true,5,0.15f);
+                    Instantiate(damageText, col.transform.position, Quaternion.identity).InitializeText(damage,Color.white,1f);
+                }
                 else
                 {
                     _enemy.TakeDamage(damage);
+                    Instantiate(damageText, col.transform.position, Quaternion.identity).InitializeText(damage,Color.white,1f);
                 }
             }
             catch (Exception e)

@@ -83,7 +83,7 @@ public class Player : Singleton<Player>
     void Update()
     {
         if(Time.timeScale.Equals(0)) return;
-        RotatePlayerFollowMouseDirection(maxDistanse:10);
+        RotatePlayerFollowMouseDirection(maxDistanse:20);
         CameraFollowPlayer();
         PlayerMovementHandle();
         PlayerBarUpdate();

@@ -514,12 +514,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Boss_3
   enemyType: 0
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 5650007097816231437, guid: 42901af67379c5641ba7f5cc069ebc63, type: 3}
   bulletOffset: 0
   fireRate: 0
   attackRange: 1
   maxHp: 1000
   attackDamage: 20
+  damageText: {fileID: 0}
   expDrop: 100
   maxSpeed: 7
   minSpeed: 4

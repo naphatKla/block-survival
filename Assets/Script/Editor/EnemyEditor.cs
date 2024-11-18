@@ -16,6 +16,7 @@ public class EnemyEditor : Editor
     protected SerializedProperty attackRange;
     protected SerializedProperty maxHp;
     protected SerializedProperty attackDamage;
+    protected SerializedProperty damageText;
     protected SerializedProperty expDrop;
     protected SerializedProperty maxSpeed;
     protected SerializedProperty minSpeed;
@@ -34,6 +35,7 @@ public class EnemyEditor : Editor
         fireRate = serializedObject.FindProperty("fireRate");
         attackRange = serializedObject.FindProperty("attackRange");
         attackDamage = serializedObject.FindProperty("attackDamage");
+        damageText = serializedObject.FindProperty("damageText");
         expDrop = serializedObject.FindProperty("expDrop");
         maxSpeed = serializedObject.FindProperty("maxSpeed");
         minSpeed = serializedObject.FindProperty("minSpeed");
@@ -60,6 +62,7 @@ public class EnemyEditor : Editor
         
         EditorGUILayout.PropertyField(maxHp);   
         EditorGUILayout.PropertyField(attackDamage);
+        EditorGUILayout.PropertyField(damageText);
         EditorGUILayout.PropertyField(expDrop);
         EditorGUILayout.PropertyField(maxSpeed);
         EditorGUILayout.PropertyField(minSpeed);

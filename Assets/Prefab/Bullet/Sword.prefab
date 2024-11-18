@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletType: 0
   playerClassData: {fileID: 11400000, guid: 53239f98e8805f540917be49a4dcbded, type: 2}
+  damageText: {fileID: 1540198057, guid: 42901af67379c5641ba7f5cc069ebc63, type: 3}
   bulletSpeed: 10
   bulletDamage: 1
   bulletOffSetScale: 0

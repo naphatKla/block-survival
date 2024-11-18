@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     [Space] [Header("Enemy Stats")]
     [SerializeField] public float maxHp;
     [SerializeField] protected float attackDamage;
+    [SerializeField] protected DamageText damageText;
     [SerializeField] protected float expDrop;
     
     [Header("Movement")]
@@ -115,6 +116,7 @@ public class Enemy : MonoBehaviour
         if (!col.gameObject.CompareTag("Player")) return;
         Player player = col.gameObject.GetComponent<Player>();    
         Vector2 direction = (player.transform.position - transform.position).normalized;
+        Instantiate(damageText, col.transform.position, Quaternion.identity).InitializeText(attackDamage,Color.red,1f);
         player.TakeDamage(attackDamage,true,direction,10f);
     }
 
