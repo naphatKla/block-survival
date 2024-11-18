@@ -46,6 +46,7 @@ public class Career : MonoBehaviour
     {
         if (careerParent) return; 
         _canUnlock = true; // if it's root career
+        Debug.Log(CareerManager.Instance);
         CareerManager.Instance.SetRootCareer(this);
     }
 
@@ -73,12 +74,19 @@ public class Career : MonoBehaviour
         careerLeft?.SetCanUnlock(true);
         careerRight?.SetCanUnlock(true);
         CareerManager.Instance.SetCurrentCareer(this);
+        CareerManager.isCareerTreeUnlocked = true;
 
         if (!careerParent) return;
-        if (careerParent.careerLeft && this == careerParent.careerLeft) 
+        if (careerParent.careerLeft && this == careerParent.careerLeft)
+        {
             careerParent.careerRight?.SetCanUnlock(false);
-        else if (careerParent.careerRight && this == careerParent.careerRight) 
+            CareerManager.savedUnlockPath.Enqueue(0); // 0 means left
+        }
+        else if (careerParent.careerRight && this == careerParent.careerRight)
+        {
             careerParent.careerLeft?.SetCanUnlock(false);
+            CareerManager.savedUnlockPath.Enqueue(1); // 1 means right
+        }
     }
     
     public Career GetParent()

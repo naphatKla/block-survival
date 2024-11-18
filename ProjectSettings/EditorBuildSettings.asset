@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePlayShaoKuyToMobile.unity
     guid: 1e4ba500239e87c44823f030197e83ff
+  - enabled: 1
+    path: Assets/Scenes/Career/TestCareer.unity
+    guid: 36ee96bf846d2864888e144b3c922add
   m_configObjects: {}

@@ -1,6 +1,7 @@
+using MoreMountains.Tools;
 using UnityEngine;
 
-public class CombatSystem : Singleton<CombatSystem>
+public class CombatSystem : MonoSingleton<CombatSystem>
 {
     #region Declare Variables
     [Header("Bullet Type")]

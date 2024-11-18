@@ -1,23 +1,42 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
+using DG.Tweening;
+using MoreMountains.Tools;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class CareerManager : Singleton<CareerManager>
+public class CareerManager : PersistentSingleton<CareerManager>
 {
+    public static Queue<int> savedUnlockPath = new Queue<int>();
+    public static bool isCareerTreeUnlocked = false;
     private Career _currentCareer;
     private Career _rootCareer;
     
     void Start()
     {
+      
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    
+    }
+    
+    [Button]
+    public void TestChangeSceneToGameplay()
+    {
+        SceneManager.LoadScene("GamePlayShaoKuyToMobile");
+    }
+
+    [Button]
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene("Scenes/Career/TestCareer");
     }
     
     public void SetRootCareer(Career rootCareer)
@@ -69,6 +88,38 @@ public class CareerManager : Singleton<CareerManager>
        }
        
        // Apply to player after this
+    }
+    
+    public void LoadSaveCareer()
+    {
+        StartCoroutine(LoadSave());
+    }
+
+    private IEnumerator LoadSave()
+    {
+        yield return new WaitForNextFrameUnit();
+        if (!isCareerTreeUnlocked) yield break;
+        if (!_rootCareer) yield break;
+        Queue<int> unlockPath = new Queue<int>(savedUnlockPath);
+        Career currentCareer = _rootCareer;
+        _rootCareer.Unlock();
+
+        savedUnlockPath.Clear();
+        while (unlockPath.Count > 0)
+        {
+            int path = unlockPath.Dequeue();
+            switch (path)
+            {
+                case 0:
+                    currentCareer = currentCareer.GetLeftCareer();
+                    break;
+                case 1:
+                    currentCareer = currentCareer.GetRightCareer();
+                    break;
+            }
+            if (currentCareer != null)
+                currentCareer.Unlock();
+        }
     }
     
     // DebugFunction ======================================================================================================

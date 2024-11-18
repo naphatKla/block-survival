@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class ParticleEffectManager : Singleton<ParticleEffectManager>
+public class ParticleEffectManager : MonoSingleton<ParticleEffectManager>
 {
 
     void Awake()

@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
+using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class Player : Singleton<Player>
+public class Player : MonoSingleton<Player>
 {
     #region Declare Variable
     [Header("Component")] 

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 using UnityEngine;
 
-public class SkillSystem : Singleton<SkillSystem>
+public class SkillSystem : MonoSingleton<SkillSystem>
 {
     [SerializeField] public List<SkillBase> skills;
     [SerializeField] public GameObject playerHelperSkill;
