@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,12 @@ public class CareerSaveData
     public bool isCareerTreeUnlocked = false;
     public PlayerStats sumOfStats = new PlayerStats();
     public List<Buff> sumOfBuffs = new List<Buff>();
+    public float currency;
 }
 
 public class CareerManager : PersistentSingleton<CareerManager>
 {
+    public static float currency = 1000f;
     public static Queue<int> savedUnlockPath = new Queue<int>();
     private static bool isCareerTreeUnlocked = false;
     private static PlayerStats sumOfStats = new PlayerStats();
@@ -97,6 +100,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
         saveData.isCareerTreeUnlocked = isCareerTreeUnlocked;
         saveData.sumOfStats = sumOfStats;
         saveData.sumOfBuffs = sumOfBuffs;
+        saveData.currency = currency;
         
         string json = JsonUtility.ToJson(saveData);
         File.WriteAllText(savePath, json); 
@@ -112,6 +116,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
         isCareerTreeUnlocked = saveData.isCareerTreeUnlocked;
         sumOfStats = saveData.sumOfStats;
         sumOfBuffs = saveData.sumOfBuffs;
+        currency = saveData.currency;
     }
     
     private IEnumerator LoadSave()
@@ -121,7 +126,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
         if (!_rootCareer) yield break;
         Queue<int> unlockPath = new Queue<int>(savedUnlockPath);
         Career currentCareer = _rootCareer;
-        _rootCareer.Unlock();
+        _rootCareer.UnlockFromSave();
 
         savedUnlockPath.Clear();
         sumOfStats = new PlayerStats();
@@ -139,7 +144,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
                     break;
             }
             if (currentCareer != null)
-                currentCareer.Unlock();
+                currentCareer.UnlockFromSave();
         }
     }
     
@@ -192,15 +197,19 @@ public class CareerManager : PersistentSingleton<CareerManager>
     {
         List<Career> activeCareers = new List<Career>();
         GetAllActiveCareer(ref activeCareers, _currentCareer);
+        float refundCurrency = 0;
         foreach (Career career in activeCareers)
         {
             career.Reset();
+            refundCurrency += career.currencyCost;
         }
         _currentCareer = null;
         sumOfStats = new PlayerStats();
         sumOfBuffs = new List<Buff>();
         isCareerTreeUnlocked = false;
         savedUnlockPath.Clear();
+        currency += refundCurrency / 2f;
+        
         SaveCareerData();
     }
     

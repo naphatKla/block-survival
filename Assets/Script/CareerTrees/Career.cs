@@ -27,6 +27,7 @@ public class Career : MonoBehaviour
     [SerializeField] protected string careerName;
     [SerializeField] protected string careerDescription;
     [SerializeField] protected PlayerStats statsImprovement;
+    public float currencyCost;
     [SerializeField] protected List<Buff> buffs;
     [SerializeField] protected Career careerLeft;
     [SerializeField] protected Career careerRight;
@@ -70,6 +71,11 @@ public class Career : MonoBehaviour
     {
         if (!_canUnlock) return;
         if (IsUnlocked) return;
+        if (CareerManager.currency < currencyCost)
+        {
+            Debug.LogWarning("Not enough currency");
+            return;
+        }
         IsUnlocked = true;
         careerLeft?.SetCanUnlock(true);
         careerRight?.SetCanUnlock(true);
@@ -89,6 +95,33 @@ public class Career : MonoBehaviour
             }
         }
         
+        CareerManager.currency -= currencyCost;
+        CareerManager.Instance.SetCurrentCareer(this);
+    }
+    
+    public void UnlockFromSave()
+    {
+        if (!_canUnlock) return;
+        if (IsUnlocked) return;
+        IsUnlocked = true;
+        careerLeft?.SetCanUnlock(true);
+        careerRight?.SetCanUnlock(true);
+
+        // if it's not root career
+        if (careerParent)
+        {
+            if (careerParent.careerLeft && this == careerParent.careerLeft)
+            {
+                careerParent.careerRight?.SetCanUnlock(false);
+                CareerManager.savedUnlockPath.Enqueue(0); // 0 means left
+            }
+            else if (careerParent.careerRight && this == careerParent.careerRight)
+            {
+                careerParent.careerLeft?.SetCanUnlock(false);
+                CareerManager.savedUnlockPath.Enqueue(1); // 1 means right
+            }
+        }
+
         CareerManager.Instance.SetCurrentCareer(this);
     }
 
