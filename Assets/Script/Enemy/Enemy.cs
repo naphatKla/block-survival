@@ -189,6 +189,7 @@ public class Enemy : MonoBehaviour
         if (_currentHp <= 0)
         {
             ParticleEffectManager.Instance.PlayParticleEffect(deadParticleSystem,transform.position);
+            _player.onKillEnemy?.Invoke();
             Destroy(gameObject);
         }
     }
@@ -208,6 +209,7 @@ public class Enemy : MonoBehaviour
         if (_currentHp <= 0)
         {
             ParticleEffectManager.Instance.PlayParticleEffect(deadParticleSystem,transform.position);
+            _player.onKillEnemy?.Invoke();
             Destroy(gameObject);
         }
     }

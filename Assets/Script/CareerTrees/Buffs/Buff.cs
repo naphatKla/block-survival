@@ -19,7 +19,7 @@ public abstract class Buff : MonoBehaviour
     protected bool isEnter;
     private bool _isEnterFirstTime;
     
-    private void Start()
+    protected virtual void Start()
     {
         player = Player.Instance;
         combatSystem = CombatSystem.Instance;
@@ -30,7 +30,7 @@ public abstract class Buff : MonoBehaviour
         if (hasCooldown) _buffCooldownTimer = 0;
     }
     
-    void Update()
+    protected virtual void Update()
     {
         CooldownHandler();
         if (hasCooldown && IsCooldown) return;

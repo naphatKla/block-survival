@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdde548f809f70441aa248281329ecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffName: 
+  buffName: Right tool for the right job
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

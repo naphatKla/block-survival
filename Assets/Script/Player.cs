@@ -3,6 +3,7 @@ using System.Collections;
 using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Player : MonoSingleton<Player>
@@ -27,6 +28,7 @@ public class Player : MonoSingleton<Player>
     public float criticalRate = 0f;
     public float MaxHealth => (baseMaxHealth + maxHealthBuff) * maxHealthMultiplier;
     public float CurrentHPPercentage => health / MaxHealth;
+    public float LastTakeDamageTime { get; private set; }
     
     public float basePlayerAttackSpeed;
     public float basePlayerDamage;
@@ -35,6 +37,7 @@ public class Player : MonoSingleton<Player>
     [HideInInspector] public float playerDamageBuff;
     [HideInInspector] public float maxHealthBuff;
     [HideInInspector] public float damageReductionPercentage;
+    [HideInInspector] public UnityAction onKillEnemy;
     private float _stamina;
     public bool isImmune;
     
@@ -275,6 +278,7 @@ public class Player : MonoSingleton<Player>
         if(isImmune) return;
         float damageApply = damage - (damage * (damageReductionPercentage/100));
         health -= damageApply;
+        LastTakeDamageTime = Time.time;
         Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damageApply,Color.red,1f);
         getHitSoundEffect.Play();
         _spriteRenderer.color = Color.red - new Color(0,0,0,0.5f);
@@ -290,6 +294,7 @@ public class Player : MonoSingleton<Player>
     {
         if(isImmune) return;
         float damageApply = damage - (damage * (damageReductionPercentage/100));
+        LastTakeDamageTime = Time.time;
         if (damageApply > 0)
         {
             health -= damageApply;
