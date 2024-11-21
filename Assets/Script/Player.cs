@@ -3,7 +3,6 @@ using System.Collections;
 using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoSingleton<Player>
@@ -20,10 +19,12 @@ public class Player : MonoSingleton<Player>
     public float baseMaxHealth;
     [SerializeField] private float maxStamina;
     [SerializeField] private float staminaRegen;
-    public float PlayerAttackSpeed => basePlayerAttackSpeed + playerAttackSpeedBuff;
+    public float PlayerAttackSpeed => (basePlayerAttackSpeed + playerAttackSpeedBuff) * attackSpeedMultiplier;
     [HideInInspector] public float damageMultiplier = 1f;
     [HideInInspector] public float maxHealthMultiplier = 1f;
+    [HideInInspector] public float attackSpeedMultiplier = 1f;
     public float PlayerDamage => (basePlayerDamage + playerDamageBuff) * damageMultiplier;
+    public float criticalRate = 0f;
     public float MaxHealth => (baseMaxHealth + maxHealthBuff) * maxHealthMultiplier;
     public float CurrentHPPercentage => health / MaxHealth;
     

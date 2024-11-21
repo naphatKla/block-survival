@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeakPerformance : Buff
+public class PeakPerformanceBuff : Buff
 {
     public override void OnStartBuffFirstTime()
     {

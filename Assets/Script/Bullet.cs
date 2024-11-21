@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bullet : MonoBehaviour
 {
@@ -56,10 +57,12 @@ public class Bullet : MonoBehaviour
         }
         
         float damage = bulletType.Equals(BulletType.PlayerHelper) ? bulletDamage : player.PlayerDamage;
+        bool isCritical = Random.Range(0, 100f) < player.criticalRate;
+        damage = isCritical ? damage * 2 : damage;
         
         if (col.gameObject.CompareTag("Guard") && !bulletType.Equals(BulletType.PlayerHelper))
         {
-            col.GetComponent<Guard>().TakeDamage(damage);
+            col.GetComponent<Guard>().TakeDamage(damage,isCritical);
             Destroy(gameObject);
         }
         
@@ -74,11 +77,11 @@ public class Bullet : MonoBehaviour
                 if (_combatSystem.playerClass.Equals(CombatSystem.PlayerClass.Sword) &&
                     !bulletType.Equals(BulletType.PlayerHelper) && _enemy.maxHp < 500f)
                 {
-                    _enemy.TakeDamage(damage,true,5,0.15f);
+                    _enemy.TakeDamage(damage,true,5,0.15f,isCritical);
                 }
                 else
                 {
-                    _enemy.TakeDamage(damage);
+                    _enemy.TakeDamage(damage,isCritical:isCritical);
                 }
             }
             catch (Exception e)

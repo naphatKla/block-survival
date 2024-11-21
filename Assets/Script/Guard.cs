@@ -33,10 +33,12 @@ public class Guard : MonoBehaviour
         }
     }
     
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isCritical = false)
     {
         _guardHp -= damage;
-        Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damage,Color.gray,1f);
+        Color color = isCritical ? Color.yellow : Color.grey;
+        float size = isCritical ? 1.5f : 1f;
+        Instantiate(damageText, transform.position, Quaternion.identity).InitializeText(damage,color,size);
         ParticleEffectManager.Instance.PlayParticleEffect(guardHitEffect,transform.position);
         if (_guardHp <= 0)
         {

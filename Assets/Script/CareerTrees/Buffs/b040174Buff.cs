@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class OneAboveAllBuff : Buff
+
+public class b040174Buff : Buff
 {
     public override void OnStartBuffFirstTime()
     {
-        player.playerDamageBuff += 8f;
         player.criticalRate += 15f;
+        player.attackSpeedMultiplier -= 0.1f;
+        player.maxHealthMultiplier -= 0.1f;
     }
 
     public override void OnStartBuff()
@@ -17,12 +16,12 @@ public class OneAboveAllBuff : Buff
 
     public override void OnUpdateBuff()
     {
-       
+        
     }
 
     public override void OnEndBuff()
     {
-        
+       
     }
 
     public override bool ApplyBuffCondition()

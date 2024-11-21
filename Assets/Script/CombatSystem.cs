@@ -1,5 +1,6 @@
 using MoreMountains.Tools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CombatSystem : MonoSingleton<CombatSystem>
 {
@@ -14,8 +15,8 @@ public class CombatSystem : MonoSingleton<CombatSystem>
     [SerializeField] public GameObject explode;
     [SerializeField] private AudioSource shootingSoundEffect;
     public PlayerClass playerClass;
+    public bool canSelectClass = true;
     
- 
     private Player _player;
     private Level _level;
     public float bulletSpeed;
@@ -28,7 +29,8 @@ public class CombatSystem : MonoSingleton<CombatSystem>
         Shotgun,
         Sniper,
         Missile,
-        Sword
+        Sword,
+        AllForOne
     }
 
     #endregion
@@ -71,6 +73,14 @@ public class CombatSystem : MonoSingleton<CombatSystem>
                 BulletMissilePatternSpawn();
                 break;
             case PlayerClass.Sword:
+                BulletSwordPatternSpawn();
+                break;
+            case PlayerClass.AllForOne:
+                BulletDefaultPatternSpawn();
+                BulletShotGunPatternSpawn();
+                BulletAssaultRiflePatternSpawn();
+                BulletSniperPatternSpawn();
+                BulletMissilePatternSpawn();
                 BulletSwordPatternSpawn();
                 break;
         }

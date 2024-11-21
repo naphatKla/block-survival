@@ -260,12 +260,16 @@ public class Level : MonoSingleton<Level>
             playerNextLevelUpExp += playerNextLevelUpExp / 2.5f ;
         }
 
-        if (playerLevel.Equals(5))
+        if (playerLevel.Equals(5) && _combatSystem.canSelectClass)
+        {
             StartCoroutine(ClassSelectUIPopUp());
-        
-        
-        if(playerLevelUpPoint > 0 && playerLevel >= 5)
-            StartCoroutine(LevelUpUIPopUp());
+        }
+
+        if (playerLevelUpPoint > 0 && playerLevel >= 5)
+        {
+            if (!_combatSystem.playerClass.Equals(CombatSystem.PlayerClass.AllForOne))
+                StartCoroutine(LevelUpUIPopUp());
+        }
     }
     
     private void CheckPlayerStats()
