@@ -42,8 +42,8 @@ public class SkillSystem : MonoSingleton<SkillSystem>
     {
         if (_level.playerLevel < skill.skillLevelUnlock) return false;
         if (skill.isCooldown) return false;
-        if (Input.GetKeyDown(skill.skillKey)) return true;
-        return false;
+        //if (Input.GetKeyDown(skill.skillKey)) return true;
+        return true;
     }
     
     private void PlaySkill(SkillBase skill) 
