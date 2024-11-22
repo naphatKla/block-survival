@@ -24,8 +24,9 @@ public struct PlayerStats
 
 public class Career : MonoBehaviour
 {
-    [SerializeField] protected string careerName;
-    [SerializeField] protected string careerDescription;
+    [SerializeField] public string careerName;
+    [SerializeField] [TextArea] public string careerDescription;
+    
     [SerializeField] protected PlayerStats statsImprovement;
     public float currencyCost;
     [SerializeField] protected List<Buff> buffs;
@@ -179,5 +180,10 @@ public class Career : MonoBehaviour
             Gizmos.color = careerRight.IsUnlocked ? Color.green : Color.red;
             Gizmos.DrawLine(transform.position, careerRight.transform.position);
         }
+    }
+
+    public void OnSelect()
+    {
+        CareerUIManager.Instance.OnSelect(this);
     }
 }
