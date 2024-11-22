@@ -15,6 +15,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject howToPlayMenu;
     [SerializeField] private Button howToPlayButton;
     [SerializeField] private List<GameObject> otherUI;
+    [SerializeField] private TextMeshProUGUI currencyTextOnWin;
+    [SerializeField] private TextMeshProUGUI currencyTextOnLose;
+    [SerializeField] private TextMeshProUGUI enemyKilledTextOnWin;
+    [SerializeField] private TextMeshProUGUI enemyLeftTextOnLose;
+    [SerializeField] private float currencyPerMin = 5f;
+    [SerializeField] private float currencyOnWin = 100f;
+    public bool saveInLeaderboard;
+    private float currencySum;
 
     public int enemySpawned;
     public int enemyLeft;
@@ -48,18 +56,34 @@ public class GameManager : MonoBehaviour
 
         if(isEnd) return;
         
-        if( enemyLeft <= 0 && timeInGame >= 900)
+        if ((int)timeInGame % 60 == 0 && (int)timeInGame <= 900 && (int)timeInGame > 0)
+        {
+            currencySum += currencyPerMin;
+        }
+        
+        if(enemyLeft <= 0 && timeInGame >= 900)
         {
             isEnd = true;
+            CareerManager.currency += currencyOnWin;
+            currencyTextOnWin.text = "Currency: +" + currencyOnWin;
+            enemyKilledTextOnWin.text = "Enemy Killed: " + Level.Instance.enemyKill; // enemy Kill on win
+            CareerManager.Instance.SaveCareerData();
             StartCoroutine(EndScenePopUp(winMenu));
         }
-        
-        if (_player.health <= 0)
+        else if (_player.health <= 0)
         {
             isEnd = true;
+            CareerManager.currency += currencySum;
+            currencyTextOnWin.text = "Currency: +" + currencySum;
+            enemyKilledTextOnWin.text = "Enemy Killed: " + Level.Instance.enemyKill; // enemy Kill on lose
+            CareerManager.Instance.SaveCareerData();
             StartCoroutine(EndScenePopUp(loseMenu));
         }
-        
+
+        if (isEnd && saveInLeaderboard)
+        {
+            // save to leaderboard here
+        }
     }
     
     private void SetTimeInGameText()

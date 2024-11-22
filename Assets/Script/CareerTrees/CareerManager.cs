@@ -103,7 +103,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
         StartCoroutine(LoadSave());
     }
 
-    private void SaveCareerData()
+    public void SaveCareerData()
     {
         CareerSaveData saveData = new CareerSaveData();
         saveData.savedUnlockPath = new List<int>(savedUnlockPath);
