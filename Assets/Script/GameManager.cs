@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currencyTextOnWin;
     [SerializeField] private TextMeshProUGUI currencyTextOnLose;
     [SerializeField] private TextMeshProUGUI enemyKilledTextOnWin;
-    [SerializeField] private TextMeshProUGUI enemyLeftTextOnLose;
+    [FormerlySerializedAs("enemyLeftTextOnLose")] [SerializeField] private TextMeshProUGUI enemyKillTextOnLose;
     [SerializeField] private float currencyPerMin = 5f;
     [SerializeField] private float currencyOnWin = 100f;
     public bool saveInLeaderboard;
@@ -74,8 +75,8 @@ public class GameManager : MonoBehaviour
         {
             isEnd = true;
             CareerManager.currency += currencySum;
-            currencyTextOnWin.text = "Currency: +" + currencySum;
-            enemyKilledTextOnWin.text = "Enemy Killed: " + Level.Instance.enemyKill; // enemy Kill on lose
+            currencyTextOnLose.text = "Currency: +" + currencySum;
+            enemyKillTextOnLose.text = "Enemy Killed: " + Level.Instance.enemyKill; // enemy Kill on lose
             CareerManager.Instance.SaveCareerData();
             StartCoroutine(EndScenePopUp(loseMenu));
         }
