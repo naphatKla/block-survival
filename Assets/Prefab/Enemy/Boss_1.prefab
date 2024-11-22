@@ -483,7 +483,7 @@ MonoBehaviour:
   bulletOffset: 0
   fireRate: 0
   attackRange: 0
-  maxHp: 1500
+  maxHp: 750
   attackDamage: 10
   damageText: {fileID: 1540198057, guid: 42901af67379c5641ba7f5cc069ebc63, type: 3}
   expDrop: 100

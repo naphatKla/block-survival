@@ -7,10 +7,11 @@ using Random = UnityEngine.Random;
 
 public class Boss : Enemy
 {
-
+    private float originalTurnDirectionDamp;
     protected override void Start()
     {
         base.Start();
+        originalTurnDirectionDamp = turnDirectionDamp;
         StartCoroutine(RandomSkill());
 
     }
@@ -52,13 +53,16 @@ public class Boss : Enemy
                     if (timeCount < 2.5)
                     {
                         _currentSpeed = 0;
+                        
                     }
                     else
                     {
                         _currentSpeed = 30f;
+                        turnDirectionDamp = 5f;
                     }
                     yield return null;
                 }
+                turnDirectionDamp = originalTurnDirectionDamp;
             }
         }
     }
