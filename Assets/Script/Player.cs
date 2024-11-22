@@ -67,6 +67,7 @@ public class Player : MonoSingleton<Player>
     [HideInInspector] public Transform playerTransform;
     private float _currentSpeed;
     public PlayerMovementStatus playerMovementStatus;
+    public LayerMask enemyLayer;
 
     public enum PlayerMovementStatus
     {
@@ -248,17 +249,17 @@ public class Player : MonoSingleton<Player>
     
     private void RotatePlayerFollowMouseDirection(float maxDistanse) //Follow enemy first
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // หา Enemy ทั้งหมดในฉาก
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, maxDistanse, enemyLayer);
         GameObject nearestEnemy = null;
         float minDistance = maxDistanse; // เริ่มต้น minDistance ด้วยค่า maxDistance
 
-        foreach (GameObject enemy in enemies)
+        foreach (Collider2D enemy in enemies)
         {
             float distance = Vector3.Distance(playerTransform.position, enemy.transform.position);
             if (distance < minDistance)
             {
                 minDistance = distance;
-                nearestEnemy = enemy;
+                nearestEnemy = enemy.gameObject;
             }
         }
 
@@ -269,7 +270,7 @@ public class Player : MonoSingleton<Player>
                 enemyPosition.x - playerTransform.position.x,
                 enemyPosition.y - playerTransform.position.y
             );
-            playerTransform.up = direction;
+            playerTransform.up = Vector2.MoveTowards(playerTransform.up, direction, 5 * Time.deltaTime);
         }
     }
     
