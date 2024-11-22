@@ -385,6 +385,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6684377907557758679, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
   m_PrefabInstance: {fileID: 352698755}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &115501316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115501318}
+  - component: {fileID: 115501317}
+  m_Layer: 0
+  m_Name: SkillSystem_AutoCreated
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &115501317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115501316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbde3cb789e10c4f9d074dc13f87735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
+  playerHelperSkill: {fileID: 0}
+--- !u!4 &115501318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115501316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &126460139
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 336875791}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+2
+      value: +Strength II
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerRight
@@ -567,7 +613,11 @@ PrefabInstance:
       objectReference: {fileID: 459531096}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -763,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 914906386}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+2/Speed+1
+      value: +Strength II, Dexterity I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerRight
@@ -771,7 +821,11 @@ PrefabInstance:
       objectReference: {fileID: 352698756}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2, Speed+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -975,11 +1029,15 @@ PrefabInstance:
       objectReference: {fileID: 533281664}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -1108,11 +1166,15 @@ PrefabInstance:
       objectReference: {fileID: 145296608}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -1250,11 +1312,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: 'Pro:
+
+        Multiply player current damage by x1.25
+
+
+        -----------------------------------------------
+
+        Con:
+
+        Max
+        HP Reduce 35%'
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -1500,11 +1576,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: "Pro:\nif 5s current DMG Multiply x1.25\nif 15s current DMG Multiply
+        x2\nif 1 min current DMG Multiply x10\n-----------------------------------------------\nCon:\nReduce
+        Max HP from -25%\nIf player getting hurt reset \"It\u2019s just a dog\" skill"
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -2188,11 +2270,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: 'Pro:
+
+        Multiply current player Max HP by x1.15 and reduce damage
+        taken by 5%
+
+
+        When player contact with enemy deals damage equal to
+        2.5% of player Max HP to enemy/1s.
+
+        -----------------------------------------------
+
+        Con:
+
+        Damage
+        Reduce - 2'
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -2200,7 +2300,7 @@ PrefabInstance:
       objectReference: {fileID: 3328947323427497585, guid: c01efe6d4ec47c24d9422379c025c423, type: 3}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.health
-      value: 15
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -2232,6 +2332,113 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1871236059139379879, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
   m_PrefabInstance: {fileID: 459531095}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &493319965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493319967}
+  - component: {fileID: 493319966}
+  m_Layer: 0
+  m_Name: Level_AutoCreated
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &493319966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493319965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61406d72488a94740980579f8f933201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLevel: 0
+  playerExp: 0
+  playerNextLevelUpExp: 0
+  playerLevelUpPoint: 0
+  lootChestPickPoint: 0
+  enemyKill: 0
+  defaultData: {fileID: 0}
+  assaultRifleData: {fileID: 0}
+  shotgunData: {fileID: 0}
+  sniperData: {fileID: 0}
+  missileData: {fileID: 0}
+  swordData: {fileID: 0}
+  lootChestData: {fileID: 0}
+  playerLevelBar: {fileID: 0}
+  playerStatus:
+    playerStatusUI: {fileID: 0}
+    statusButton: {fileID: 0}
+    statusText: {fileID: 0}
+    enemyKillText: {fileID: 0}
+  lootChest:
+    lootChestUI: {fileID: 0}
+    healthButton: {fileID: 0}
+    damageButton: {fileID: 0}
+    attackSpeedButton: {fileID: 0}
+    speedButton: {fileID: 0}
+    dashButton: {fileID: 0}
+    skipButton: {fileID: 0}
+    healthText: {fileID: 0}
+    damageText: {fileID: 0}
+    attackSpeedText: {fileID: 0}
+    speedText: {fileID: 0}
+    dashText: {fileID: 0}
+    lootChestPointText: {fileID: 0}
+    animator: {fileID: 0}
+  playerLevelUp:
+    levelUpUI: {fileID: 0}
+    healthButton: {fileID: 0}
+    damageButton: {fileID: 0}
+    attackSpeedButton: {fileID: 0}
+    speedButton: {fileID: 0}
+    skipButton: {fileID: 0}
+    levelUpPointText: {fileID: 0}
+    healthText: {fileID: 0}
+    damageText: {fileID: 0}
+    attackSpeedText: {fileID: 0}
+    speedText: {fileID: 0}
+    animator: {fileID: 0}
+  classTypeSelect:
+    classSelectUI: {fileID: 0}
+    assaultRifleButton: {fileID: 0}
+    shotGunButton: {fileID: 0}
+    sniperButton: {fileID: 0}
+    missileButton: {fileID: 0}
+    swordButton: {fileID: 0}
+    animator: {fileID: 0}
+  blockImage:
+    hpBlockImages: []
+    damageBlockImages: []
+    attackSpeedBlockImages: []
+    speedBlockImages: []
+    dashBlockImages: []
+  levelUpSoundEffect: {fileID: 0}
+  playerLevelText: {fileID: 0}
+--- !u!4 &493319967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493319965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &501836134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2329,15 +2536,19 @@ PrefabInstance:
       objectReference: {fileID: 839975760}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: L_DMG+1/Max HP+12
+      value: +Strength II, +Vitality XXXV
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2, Max HP+35
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -2345,7 +2556,7 @@ PrefabInstance:
       objectReference: {fileID: 3328947323427497585, guid: c01efe6d4ec47c24d9422379c025c423, type: 3}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.health
-      value: 12
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -2357,7 +2568,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e46f2cd9090652d4ba4b3534f477fc68, type: 3}
     - target: {fileID: 6684377907557758679, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: m_Name
-      value: L_DMG+1/Max HP+12
+      value: L_DMG+1/Max HP+35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
@@ -2701,15 +2912,19 @@ PrefabInstance:
       objectReference: {fileID: 922762549}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: It's just a dog
+      value: +Strength II
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -2850,7 +3065,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: "All Round Path \n(Easy To Play)"
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -3183,15 +3402,19 @@ PrefabInstance:
       objectReference: {fileID: 1712888520}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+2
+      value: +Strength II
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -3429,6 +3652,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663297984}
   m_CullTransparentMesh: 1
+--- !u!1 &723951289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 723951291}
+  - component: {fileID: 723951290}
+  m_Layer: 0
+  m_Name: CombatSystem_AutoCreated
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &723951290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723951289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc00c1232b5349f4abf151e4c75f6ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  assaultRifleBullet: {fileID: 0}
+  shotgunBullet: {fileID: 0}
+  sniperBullet: {fileID: 0}
+  missileBullet: {fileID: 0}
+  sword: {fileID: 0}
+  explode: {fileID: 0}
+  shootingSoundEffect: {fileID: 0}
+  playerClass: 0
+  canSelectClass: 1
+  bulletSpeed: 0
+  bulletOfsetScale: 0
+--- !u!4 &723951291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723951289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755107390
 GameObject:
   m_ObjectHideFlags: 0
@@ -3865,15 +4144,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: L_PeakPerformace
+      value: PeakPerformace
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: 'Pro:
+
+        DMG taken reduce: 45%
+
+        -----------------------------------------------
+
+        Con:
+
+        Disable
+        Peak Performance if player HP below 80%'
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -3881,7 +4173,7 @@ PrefabInstance:
       objectReference: {fileID: 5468402264153769410, guid: 8d13f00d1ceb1194a8e8505879f8dd4f, type: 3}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.health
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -4291,11 +4583,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: 'Pro:
+
+        Has a chance to deal a critical DMG to enemy
+
+
+        Increase
+        critical chance +15%
+
+        Increase ATS +10%
+
+        -----------------------------------------------
+
+        Con:
+
+        Reduce
+        Max HP -10%'
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -4421,15 +4732,19 @@ PrefabInstance:
       objectReference: {fileID: 501836135}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: L_DMG+2/Max HP+10
+      value: +Strength II, +Vitality XXX
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2, Max HP+30
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -4437,7 +4752,7 @@ PrefabInstance:
       objectReference: {fileID: 3328947323427497585, guid: c01efe6d4ec47c24d9422379c025c423, type: 3}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.health
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -4449,7 +4764,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e46f2cd9090652d4ba4b3534f477fc68, type: 3}
     - target: {fileID: 6684377907557758679, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: m_Name
-      value: L_DMG+2/Max HP+10
+      value: L_DMG+2/Max HP+30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
@@ -4577,15 +4892,19 @@ PrefabInstance:
       objectReference: {fileID: 1337177392}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: It's just a dog
+      value: +Strength II
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -4866,11 +5185,15 @@ PrefabInstance:
       objectReference: {fileID: 314873814}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -5616,15 +5939,19 @@ PrefabInstance:
       objectReference: {fileID: 1700335219}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -6229,7 +6556,7 @@ PrefabInstance:
       objectReference: {fileID: 601587841}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerRight
@@ -6237,7 +6564,11 @@ PrefabInstance:
       objectReference: {fileID: 1349100216}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -6766,11 +7097,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: 'Pro:
+
+        The boogeyman: if a player kills an enemy gain 1 stack,
+        A stack gives player damage stats point.
+
+        (1 stack give player damage
+        stats point 0.0025 can stack up infinitely)
+
+        -----------------------------------------------
+
+        Con:
+
+        Reduce
+        Max HP from -25% -> -50%'
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -7016,7 +7364,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: "Glass Canon \n(Hard to Play)"
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -7585,15 +7937,19 @@ PrefabInstance:
       objectReference: {fileID: 619419324}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+2
+      value: +Strength II
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+2
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -7797,7 +8153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -7805,37 +8161,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
-      value: 'Like they said, put the right man on the right job huh? they sure were
-        lucky to have me here then.
+      value: 'Pro:
+
+        Unlock all weapon, using every weapon the game at the
+        same time
+
+        (All weapon stats based on default gun)
 
 
-        Pro:
+        Increase
+        critical chance from +15% -> 40%
 
-        Unlock all weapon, using
-        every weapon in the game at the same time (All weapon stats based on default
-        gun)
+        -----------------------------------------------
 
-
-        Increase critical chance from
-
-        +15% -> 40%
-
-
-        Cons:
+        Con:
 
         Level
-        Up does not give player stats is by chest
+        Up does not give player stats only to increase the stats is  by chest
 
 
-        Reduce Max HP from -10%
-        -> 20%
+        Reduce
+        Max HP from -10% -> -20%
 
-        Walk Speed -1
-
-
-        Skill Benefits
-
-        DMG+1'
+        Walk Speed -1'
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -8034,11 +8382,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: 'Pro:
+
+        Damage Boost + 8
+
+
+        Increase critical chance +15%
+
+        -----------------------------------------------
+
+        Con:
+
+        -----------------------------------------------
+
+        Skill
+        Benefits
+
+        DMG + 5
+
+        Increase Walk Speed +2'
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -8309,11 +8679,15 @@ PrefabInstance:
       objectReference: {fileID: 296951150}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -9733,7 +10107,7 @@ PrefabInstance:
       objectReference: {fileID: 1268159870}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: isUnlocked
@@ -9745,7 +10119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: statsImprovement.attackDamage
@@ -10078,15 +10456,19 @@ PrefabInstance:
       objectReference: {fileID: 1185308538}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: DMG+1
+      value: +Strength I
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: DMG+1
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.data[0]
@@ -10403,7 +10785,7 @@ PrefabInstance:
       objectReference: {fileID: 2092134746}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerName
-      value: Root
+      value: Unemployed
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: isUnlocked
@@ -10415,7 +10797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 50
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
+      propertyPath: careerDescription
+      value: No job, No Money, No Nothing
       objectReference: {fileID: 0}
     - target: {fileID: 5119371733900880283, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: m_Sprite

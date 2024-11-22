@@ -45,6 +45,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: One Above All
+  buffDescription: 'Pro:
+
+    Damage Boost + 8
+
+
+    Increase critical chance +15%
+
+
+    -----------------------------------------------
+
+    Con:
+
+    -----------------------------------------------
+
+    Skill
+    Benefits
+
+    DMG + 5
+
+    Increase Walk Speed +2'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

@@ -45,6 +45,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: 040174
+  buffDescription: 'Pro:
+
+    Has a chance to deal a critical DMG to enemy
+
+
+    Increase
+    critical chance +15%
+
+    Increase ATS +10%
+
+    -----------------------------------------------
+
+    Con:
+
+    Reduce
+    Max HP -10%'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

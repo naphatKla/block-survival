@@ -45,6 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: The BooGeyman
+  buffDescription: 'Pro:
+
+    The boogeyman: if a player kills an enemy gain 1 stack,
+    A stack gives player damage stats point.
+
+    (1 stack give player damage stats
+    point 0.0025 can stack up infinitely)
+
+    -----------------------------------------------
+
+    Con:
+
+    Reduce
+    Max HP from -25% -> -50%'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0
