@@ -97,7 +97,7 @@ public class Player : MonoSingleton<Player>
     void Update()
     {
         if(Time.timeScale.Equals(0)) return;
-        RotatePlayerFollowMouseDirection(maxDistanse:20);
+        RotatePlayerFollowMouseDirection(maxDistanse:17);
         CameraFollowPlayer();
         PlayerMovementHandle();
         PlayerBarUpdate();
@@ -269,8 +269,12 @@ public class Player : MonoSingleton<Player>
             Vector2 direction = new Vector2(
                 enemyPosition.x - playerTransform.position.x,
                 enemyPosition.y - playerTransform.position.y
-            );
+            ).normalized;
             playerTransform.up = Vector2.MoveTowards(playerTransform.up, direction, 5 * Time.deltaTime);
+        }
+        else
+        {
+            playerTransform.up = Vector2.MoveTowards(playerTransform.up, playerRigidbody2D.velocity.normalized, 10 * Time.deltaTime);
         }
     }
     

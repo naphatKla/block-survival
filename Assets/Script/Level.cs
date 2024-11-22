@@ -337,10 +337,8 @@ public class Level : MonoSingleton<Level>
             $"Level : {playerLevel} \n" +
             $"Damage : {_player.PlayerDamage:F2} \n" +
             $"Attack Speed : {_player.PlayerAttackSpeed:F2} \n" +
-            $"Speed : {_player.sprintSpeed:F2} \n" +
-            $"Dash Speed : {_player.dashSpeed:F2} \n";
+            $"Speed : {_player.sprintSpeed:F2} \n";
         
-
             playerStatus.enemyKillText.text = $"Enemy Kill : {enemyKill}\n" +
             $"Enemy Left : {_gameManager.enemyLeft}";
         playerLevelBar.size = playerExp / playerNextLevelUpExp;
