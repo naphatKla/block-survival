@@ -2027,9 +2027,9 @@ RectTransform:
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 177}
+  m_SizeDelta: {x: 0, y: 354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421582681
 MonoBehaviour:
@@ -2073,6 +2073,11 @@ CanvasRenderer:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6684377907557758679, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
   m_PrefabInstance: {fileID: 501836134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &452786532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8945778650841743594, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
+  m_PrefabInstance: {fileID: 8945778651204352398}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &452786533 stripped
 RectTransform:
@@ -2957,7 +2962,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1780321989}
   m_HandleRect: {fileID: 1780321988}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3405,14 +3410,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70c27795d52b0d4d829e2a2b143afd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  descriptionHeader: {fileID: 419116350}
-  descriptionDescription: {fileID: 1298970365}
-  descriptionPrice: {fileID: 1112787778}
+  homePanel: {fileID: 1252054748}
+  careerPathPanel: {fileID: 373218354}
+  statsPanel: {fileID: 452786532}
+  HeaderPanel: {fileID: 1810005026}
+  homeButton: {fileID: 886875979}
+  careerPathButton: {fileID: 1175700332}
+  statsButton: {fileID: 1271188589}
+  careerPathHeader: {fileID: 419116350}
+  careerPathDescription: {fileID: 1298970365}
+  careerPathPrice: {fileID: 1112787778}
   currencyText: {fileID: 1977539536}
   buyButton: {fileID: 2063527406}
-  homeButton: {fileID: 0}
-  careerPathButton: {fileID: 0}
-  statsButton: {fileID: 0}
+  playButton: {fileID: 1137308994}
 --- !u!1 &786891744
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,7 +3953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1075}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 322.6, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886875979
@@ -3989,7 +3999,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 886875980}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 755107395}
+        m_TargetAssemblyTypeName: CareerUIManager, Assembly-CSharp
+        m_MethodName: HomeButtonSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &886875980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5114,7 +5136,7 @@ GameObject:
   - component: {fileID: 1137308995}
   - component: {fileID: 1137308994}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5260,7 +5282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -349, y: -1075}
+  m_AnchoredPosition: {x: -349, y: 0}
   m_SizeDelta: {x: 257.7, y: 156.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1175700332
@@ -5306,7 +5328,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1175700333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 755107395}
+        m_TargetAssemblyTypeName: CareerUIManager, Assembly-CSharp
+        m_MethodName: CareerPathButtonSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1175700333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6131,7 +6165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 356, y: -1075}
+  m_AnchoredPosition: {x: 356, y: 0}
   m_SizeDelta: {x: 257.7, y: 156.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271188589
@@ -6177,7 +6211,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1271188590}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 755107395}
+        m_TargetAssemblyTypeName: CareerUIManager, Assembly-CSharp
+        m_MethodName: StatButtonSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1271188590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8060,7 +8106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Career Path
+  m_text: Home
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8658,7 +8704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Currency : 000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10102,6 +10148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stats Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 8945778650841743594, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8945778650841743595, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10184,26 +10234,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8945778650841743595, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945778651821436266, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945778651821436266, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945778651821436266, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945778651821436266, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945778651821436266, guid: 2fb372e4148af77499fc2d4f5313efc8, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

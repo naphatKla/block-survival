@@ -9,15 +9,24 @@ using UnityEngine.UI;
 
 public class CareerUIManager : MonoSingleton<CareerUIManager>
 {
-    [FoldoutGroup("CareerPath")] [SerializeField] private TextMeshProUGUI descriptionHeader;
-    [FoldoutGroup("CareerPath")] [SerializeField] private TextMeshProUGUI descriptionDescription;
-    [FoldoutGroup("CareerPath")] [SerializeField] private TextMeshProUGUI descriptionPrice;
-    [FoldoutGroup("CareerPath")] [SerializeField] TextMeshProUGUI currencyText;
-    [FoldoutGroup("CareerPath")] [SerializeField] private Button buyButton;
+    [FoldoutGroup("Panel")] [SerializeField] private GameObject homePanel;
+    [FoldoutGroup("Panel")] [SerializeField] private GameObject careerPathPanel;
+    [FoldoutGroup("Panel")] [SerializeField] private GameObject statsPanel;
+    [FoldoutGroup("Panel")] [SerializeField] private TextMeshProUGUI HeaderPanel;
     
     [FoldoutGroup("MainButton")] [SerializeField] private Button homeButton;
     [FoldoutGroup("MainButton")] [SerializeField] private Button careerPathButton;
     [FoldoutGroup("MainButton")] [SerializeField] private Button statsButton;
+    
+    [FoldoutGroup("CareerPathPanel")] [SerializeField] private TextMeshProUGUI careerPathHeader;
+    [FoldoutGroup("CareerPathPanel")] [SerializeField] private TextMeshProUGUI careerPathDescription;
+    [FoldoutGroup("CareerPathPanel")] [SerializeField] private TextMeshProUGUI careerPathPrice;
+    [FoldoutGroup("CareerPathPanel")] [SerializeField] TextMeshProUGUI currencyText;
+    [FoldoutGroup("CareerPathPanel")] [SerializeField] private Button buyButton;
+    
+    [FoldoutGroup("HomePanel")] [SerializeField] private Button playButton;
+    
+    
     
     void Start()
     {
@@ -33,9 +42,9 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
     {
         Debug.Log(career.currencyCost);
         buyButton.onClick.RemoveAllListeners();
-        descriptionHeader.text = career.careerName;
-        descriptionDescription.text = career.careerDescription;
-        descriptionPrice.text = $"Price : {career.currencyCost.ToString()}";
+        careerPathHeader.text = career.careerName;
+        careerPathDescription.text = career.careerDescription;
+        careerPathPrice.text = $"Price : {career.currencyCost.ToString()}";
         List<Buff> buffs = career.GetBuffs();
         if (buffs.Count != 0)
         {
@@ -43,5 +52,30 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
         }
 
         buyButton.onClick.AddListener(career.Unlock);
+    }
+
+    private void CloseAllPanel()
+    {
+        homePanel.SetActive(false);
+        statsPanel.SetActive(false);
+        careerPathPanel.SetActive(false);
+    }
+    public void HomeButtonSelected()
+    {
+        CloseAllPanel();
+        homePanel.SetActive(true);
+        HeaderPanel.text = "Home";
+    }
+    public void StatButtonSelected()
+    {
+        CloseAllPanel();
+        statsPanel.SetActive(true);
+        HeaderPanel.text = "Stats";
+    }
+    public void CareerPathButtonSelected()
+    {
+        CloseAllPanel();
+        careerPathPanel.SetActive(true);
+        HeaderPanel.text = "Career Path";
     }
 }

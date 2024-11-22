@@ -87,6 +87,16 @@ public class CareerManager : PersistentSingleton<CareerManager>
            Instantiate(buff).gameObject.transform.SetParent(buffParent.transform);
        }
     }
+
+    public PlayerStats GetSumOfStats()
+    {
+        return sumOfStats;
+    }
+
+    public List<Buff> GetSumOfBuffs()
+    {
+        return sumOfBuffs;
+    }
     
     public void LoadSaveCareer()
     {
