@@ -45,6 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: We Go Full Body
+  buffDescription: 'Pro:
+
+    Multiply player current damage by x1.25
+
+    -----------------------------------------------
+
+    Con:
+
+    Max
+    HP Reduce 35%'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

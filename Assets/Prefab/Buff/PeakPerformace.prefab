@@ -45,6 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: Peak Performance
+  buffDescription: 'Pro:
+
+    DMG taken reduce: 45%
+
+    -----------------------------------------------
+
+    Con:
+
+    Disable
+    Peak Performance if player HP below 80%'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

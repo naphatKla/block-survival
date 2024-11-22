@@ -48,6 +48,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: Whey Lover
+  buffDescription: 'Pro:
+
+    Multiply current player Max HP by x1.15 and reduce
+    damage taken by 5%
+
+
+    When player contact with enemy deals damage equal to
+    2.5% of player Max HP to enemy/1s.
+
+    -----------------------------------------------
+
+    Con:
+
+    Damage
+    Reduce - 2'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0
