@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Buff : MonoBehaviour
 {
     [SerializeField] private string buffName;
-    [SerializeField] private string buffDescription;
+    [SerializeField] [TextArea] private string buffDescription;
     [SerializeField] private bool hasLifetime;
     [SerializeField] private bool hasCooldown;
     [ShowIf(nameof(hasLifetime))] [SerializeField] private float buffDuration;
