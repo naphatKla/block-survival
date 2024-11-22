@@ -567,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 459531096}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 2000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -775,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 352698756}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 2000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -987,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 1700
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -1124,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 1700
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -1266,7 +1266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 2500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -1530,7 +1530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 2500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -2224,7 +2224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 2500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -2387,7 +2387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -2763,7 +2763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -2912,7 +2912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 69
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -3253,7 +3253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -3939,7 +3939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 5000
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -4374,7 +4374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 2500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -4527,7 +4527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -4687,7 +4687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -4980,7 +4980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 1500
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -5734,7 +5734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -6355,7 +6355,7 @@ PrefabInstance:
       objectReference: {fileID: 1349100216}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 1000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -6888,7 +6888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 5000
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -7155,7 +7155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 69
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -7732,7 +7732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -7944,7 +7944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 5000
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -8173,7 +8173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 5000
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
@@ -8474,7 +8474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 1500
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -9910,7 +9910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 500
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: careerDescription
@@ -10251,7 +10251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: currencyCost
-      value: 3000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2521356796652169002, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
       propertyPath: buffs.Array.size
