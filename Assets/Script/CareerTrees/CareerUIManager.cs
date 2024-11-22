@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
+using Sirenix.OdinInspector;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,12 +9,15 @@ using UnityEngine.UI;
 
 public class CareerUIManager : MonoSingleton<CareerUIManager>
 {
-    [SerializeField] private TextMeshProUGUI descriptionHeader;
-    [SerializeField] private TextMeshProUGUI descriptionDescription;
-    [SerializeField] private TextMeshProUGUI descriptionPrice;
-    [SerializeField] TextMeshProUGUI currencyText;
-    [SerializeField] private Button buyButton;
-    [SerializeField] private Button homeButton;
+    [FoldoutGroup("CareerPath")] [SerializeField] private TextMeshProUGUI descriptionHeader;
+    [FoldoutGroup("CareerPath")] [SerializeField] private TextMeshProUGUI descriptionDescription;
+    [FoldoutGroup("CareerPath")] [SerializeField] private TextMeshProUGUI descriptionPrice;
+    [FoldoutGroup("CareerPath")] [SerializeField] TextMeshProUGUI currencyText;
+    [FoldoutGroup("CareerPath")] [SerializeField] private Button buyButton;
+    
+    [FoldoutGroup("MainButton")] [SerializeField] private Button homeButton;
+    [FoldoutGroup("MainButton")] [SerializeField] private Button careerPathButton;
+    [FoldoutGroup("MainButton")] [SerializeField] private Button statsButton;
     
     void Start()
     {
@@ -25,7 +29,7 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
         currencyText.text = $"Currency: {CareerManager.currency}";
     }
 
-    public void OnSelect(Career career)
+    public void OnCareerSelect(Career career)
     {
         Debug.Log(career.currencyCost);
         buyButton.onClick.RemoveAllListeners();

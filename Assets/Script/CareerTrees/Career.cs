@@ -29,7 +29,7 @@ public class Career : MonoBehaviour
     
     [SerializeField] protected PlayerStats statsImprovement;
     public float currencyCost;
-    [SerializeField] protected List<Buff> buffs;
+    [SerializeField] public List<Buff> buffs;
     [SerializeField] protected Career careerLeft;
     [SerializeField] protected Career careerRight;
     protected Career careerParent;
@@ -184,6 +184,6 @@ public class Career : MonoBehaviour
 
     public void OnSelect()
     {
-        CareerUIManager.Instance.OnSelect(this);
+        CareerUIManager.Instance.OnCareerSelect(this);
     }
 }
