@@ -20,7 +20,7 @@ public class CareerSaveData
 
 public class CareerManager : PersistentSingleton<CareerManager>
 {
-    public static float currency = 1000f;
+    public static float currency;
     public static Queue<int> savedUnlockPath = new Queue<int>();
     private static bool isCareerTreeUnlocked = false;
     public UnityEvent OnLoadSaveDataDone;
