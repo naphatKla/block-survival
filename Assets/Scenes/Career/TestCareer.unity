@@ -266,6 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutomaticallyUnparentOnAwake: 1
+  OnLoadSaveDataDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &59080975
 Transform:
   m_ObjectHideFlags: 0
@@ -1778,113 +1781,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373218354}
   m_CullTransparentMesh: 1
---- !u!1 &390989296
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 390989298}
-  - component: {fileID: 390989297}
-  m_Layer: 0
-  m_Name: Level_AutoCreated
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &390989297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390989296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61406d72488a94740980579f8f933201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLevel: 0
-  playerExp: 0
-  playerNextLevelUpExp: 0
-  playerLevelUpPoint: 0
-  lootChestPickPoint: 0
-  enemyKill: 0
-  defaultData: {fileID: 0}
-  assaultRifleData: {fileID: 0}
-  shotgunData: {fileID: 0}
-  sniperData: {fileID: 0}
-  missileData: {fileID: 0}
-  swordData: {fileID: 0}
-  lootChestData: {fileID: 0}
-  playerLevelBar: {fileID: 0}
-  playerStatus:
-    playerStatusUI: {fileID: 0}
-    statusButton: {fileID: 0}
-    statusText: {fileID: 0}
-    enemyKillText: {fileID: 0}
-  lootChest:
-    lootChestUI: {fileID: 0}
-    healthButton: {fileID: 0}
-    damageButton: {fileID: 0}
-    attackSpeedButton: {fileID: 0}
-    speedButton: {fileID: 0}
-    dashButton: {fileID: 0}
-    skipButton: {fileID: 0}
-    healthText: {fileID: 0}
-    damageText: {fileID: 0}
-    attackSpeedText: {fileID: 0}
-    speedText: {fileID: 0}
-    dashText: {fileID: 0}
-    lootChestPointText: {fileID: 0}
-    animator: {fileID: 0}
-  playerLevelUp:
-    levelUpUI: {fileID: 0}
-    healthButton: {fileID: 0}
-    damageButton: {fileID: 0}
-    attackSpeedButton: {fileID: 0}
-    speedButton: {fileID: 0}
-    skipButton: {fileID: 0}
-    levelUpPointText: {fileID: 0}
-    healthText: {fileID: 0}
-    damageText: {fileID: 0}
-    attackSpeedText: {fileID: 0}
-    speedText: {fileID: 0}
-    animator: {fileID: 0}
-  classTypeSelect:
-    classSelectUI: {fileID: 0}
-    assaultRifleButton: {fileID: 0}
-    shotGunButton: {fileID: 0}
-    sniperButton: {fileID: 0}
-    missileButton: {fileID: 0}
-    swordButton: {fileID: 0}
-    animator: {fileID: 0}
-  blockImage:
-    hpBlockImages: []
-    damageBlockImages: []
-    attackSpeedBlockImages: []
-    speedBlockImages: []
-    dashBlockImages: []
-  levelUpSoundEffect: {fileID: 0}
-  playerLevelText: {fileID: 0}
---- !u!4 &390989298
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390989296}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &418440115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,62 +2232,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1871236059139379879, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}
   m_PrefabInstance: {fileID: 459531095}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &472038257
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 472038259}
-  - component: {fileID: 472038258}
-  m_Layer: 0
-  m_Name: CombatSystem_AutoCreated
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &472038258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472038257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc00c1232b5349f4abf151e4c75f6ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  assaultRifleBullet: {fileID: 0}
-  shotgunBullet: {fileID: 0}
-  sniperBullet: {fileID: 0}
-  missileBullet: {fileID: 0}
-  sword: {fileID: 0}
-  explode: {fileID: 0}
-  shootingSoundEffect: {fileID: 0}
-  playerClass: 0
-  canSelectClass: 1
-  bulletSpeed: 0
-  bulletOfsetScale: 0
---- !u!4 &472038259
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472038257}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &501836134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7487,52 +7327,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503043460}
   m_CullTransparentMesh: 1
---- !u!1 &1569362339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1569362341}
-  - component: {fileID: 1569362340}
-  m_Layer: 0
-  m_Name: SkillSystem_AutoCreated
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1569362340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569362339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfbde3cb789e10c4f9d074dc13f87735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills: []
-  playerHelperSkill: {fileID: 0}
---- !u!4 &1569362341
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569362339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611933990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6684377907557758679, guid: 4d4ea3139c241cf4496cc65574b1538a, type: 3}

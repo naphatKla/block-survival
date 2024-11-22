@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using DG.Tweening;
 using MoreMountains.Tools;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class CareerSaveData
@@ -24,6 +23,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
     public static float currency = 1000f;
     public static Queue<int> savedUnlockPath = new Queue<int>();
     private static bool isCareerTreeUnlocked = false;
+    public UnityEvent OnLoadSaveDataDone;
     private static PlayerStats sumOfStats = new PlayerStats();
     private static List<Buff> sumOfBuffs = new List<Buff>();
     private string savePath => Path.Combine(Application.persistentDataPath, "CareerSaveData.json");
@@ -132,8 +132,17 @@ public class CareerManager : PersistentSingleton<CareerManager>
     private IEnumerator LoadSave()
     {
         yield return new WaitForNextFrameUnit();
-        if (!isCareerTreeUnlocked) yield break;
-        if (!_rootCareer) yield break;
+        if (!isCareerTreeUnlocked)
+        {
+            OnLoadSaveDataDone.Invoke();
+            yield break;
+        }
+
+        if (!_rootCareer)
+        {
+            OnLoadSaveDataDone.Invoke();
+            yield break;
+        }
         Queue<int> unlockPath = new Queue<int>(savedUnlockPath);
         Career currentCareer = _rootCareer;
         _rootCareer.UnlockFromSave();
@@ -156,6 +165,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
             if (currentCareer != null)
                 currentCareer.UnlockFromSave();
         }
+        OnLoadSaveDataDone.Invoke();
     }
     
     // DebugFunction ======================================================================================================
