@@ -23,6 +23,7 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
     [FoldoutGroup("CareerPathPanel")] [SerializeField] private TextMeshProUGUI careerPathPrice;
     [FoldoutGroup("CareerPathPanel")] [SerializeField] TextMeshProUGUI currencyText;
     [FoldoutGroup("CareerPathPanel")] [SerializeField] private Button buyButton;
+    [FoldoutGroup("CareerPathPanel")] [SerializeField] private Button resetButton;
     
     [FoldoutGroup("HomePanel")] [SerializeField] private Button playButton;
     
@@ -30,12 +31,6 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
     
     void Start()
     {
-        if (!careerPathPanel.activeSelf)
-        {
-            careerPathPanel.SetActive(true);
-            CareerManager.Instance.OnLoadSaveDataDone.AddListener( () =>careerPathPanel.SetActive(false));
-        }
-        
         CareerManager.Instance.LoadSaveCareer();
     }
     
@@ -58,6 +53,11 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
         }
 
         buyButton.onClick.AddListener(career.Unlock);
+    }
+
+    public void ResetStats()
+    {
+        CareerManager.Instance.ResetAllCareer();
     }
 
     private void CloseAllPanel()

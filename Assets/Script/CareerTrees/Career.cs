@@ -98,6 +98,7 @@ public class Career : MonoBehaviour
         
         CareerManager.currency -= currencyCost;
         CareerManager.Instance.SetCurrentCareer(this);
+        StatsPanel.Instance.UpdateStat();
     }
     
     public void UnlockFromSave()

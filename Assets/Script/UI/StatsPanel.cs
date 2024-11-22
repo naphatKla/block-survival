@@ -15,21 +15,28 @@ public class StatsPanel : MonoSingleton<StatsPanel>
     [FoldoutGroup("StatPanel")] [SerializeField] private TextMeshProUGUI statDescription;
     void Start()
     {
-        
+        UpdateStat();
     }
 
     // Update is called once per frame
     void Update()
     {
-        health.text = CareerManager.Instance.GetSumOfStats().health.ToString();
-        movementSpeed.text = CareerManager.Instance.GetSumOfStats().movementSpeed.ToString();
-        attackDamage.text = CareerManager.Instance.GetSumOfStats().attackDamage.ToString();
-        attackSpeed.text = CareerManager.Instance.GetSumOfStats().attackSpeed.ToString();
+        
+    }
+
+    public void UpdateStat()
+    {
+        health.text = "+ " + CareerManager.Instance.GetSumOfStats().health.ToString();
+        movementSpeed.text = "+ " +CareerManager.Instance.GetSumOfStats().movementSpeed.ToString();
+        attackDamage.text = "+ " + CareerManager.Instance.GetSumOfStats().attackDamage.ToString();
+        attackSpeed.text = "+ " + CareerManager.Instance.GetSumOfStats().attackSpeed.ToString();
+        string temp = "";
         foreach (Buff a in CareerManager.Instance.GetSumOfBuffs())
         {
-            statDescription.text = a.GetBuffName();
+            temp += a.GetBuffName() +  "\n";
         }
-        
+
+        statDescription.text = temp;
     }
 
 }

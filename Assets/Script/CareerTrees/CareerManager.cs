@@ -8,7 +8,6 @@ using MoreMountains.Tools;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class CareerSaveData
@@ -24,7 +23,6 @@ public class CareerManager : PersistentSingleton<CareerManager>
 {
     public static float currency = 1000f;
     public static Queue<int> savedUnlockPath = new Queue<int>();
-    public UnityEvent OnLoadSaveDataDone;
     private static bool isCareerTreeUnlocked = false;
     private static PlayerStats sumOfStats = new PlayerStats();
     private static List<Buff> sumOfBuffs = new List<Buff>();
@@ -158,7 +156,6 @@ public class CareerManager : PersistentSingleton<CareerManager>
             if (currentCareer != null)
                 currentCareer.UnlockFromSave();
         }
-        OnLoadSaveDataDone?.Invoke();
     }
     
     // DebugFunction ======================================================================================================
@@ -206,7 +203,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
     }
 
     [FoldoutGroup("DangerZone")] [Button(ButtonSizes.Medium), GUIColor("red")]
-    private void ResetAllCareer()
+    public void ResetAllCareer()
     {
         List<Career> activeCareers = new List<Career>();
         GetAllActiveCareer(ref activeCareers, _currentCareer);
