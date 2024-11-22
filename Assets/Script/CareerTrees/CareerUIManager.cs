@@ -30,6 +30,12 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
     
     void Start()
     {
+        if (!careerPathPanel.activeSelf)
+        {
+            careerPathPanel.SetActive(true);
+            CareerManager.Instance.OnLoadSaveDataDone.AddListener( () =>careerPathPanel.SetActive(false));
+        }
+        
         CareerManager.Instance.LoadSaveCareer();
     }
     

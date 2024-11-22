@@ -266,6 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutomaticallyUnparentOnAwake: 1
+  OnLoadSaveDataDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &59080975
 Transform:
   m_ObjectHideFlags: 0
