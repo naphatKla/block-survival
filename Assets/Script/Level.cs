@@ -177,8 +177,8 @@ public class Level : MonoSingleton<Level>
         playerLevelUp.healthText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeHealth} \nMax HP";
         playerLevelUp.damageText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeDamage} ATK Damage";
         playerLevelUp.attackSpeedText.text = $"- {GetClassData(_combatSystem.playerClass).upgradeAttackSpeed} ATK Cooldown";
-        playerLevelUp.speedText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeSprintSpeed} Speed\n" +
-                                       $"- {GetClassData(_combatSystem.playerClass).upgradeSprintStaminaDrain} Sprint Stamina";
+        playerLevelUp.speedText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeWalkSpeed} Speed\n";
+                                       
         Time.timeScale = 1;
     }
     
@@ -356,8 +356,7 @@ public class Level : MonoSingleton<Level>
         lootChest.healthText.text = $"+ {lootChestData.upgradeHealth} \nMax HP";
         lootChest.damageText.text = $"+ {lootChestData.upgradeDamage} ATK Damage";
         lootChest.attackSpeedText.text = $"- {lootChestData.upgradeAttackSpeed} ATK Cooldown";
-        lootChest.speedText.text = $"+ {lootChestData.upgradeSprintSpeed} Speed\n" +
-                                   $"- {lootChestData.upgradeSprintStaminaDrain} Sprint Stamina";
+        lootChest.speedText.text = $"+ {lootChestData.upgradeSprintSpeed} Speed\n";
         lootChest.dashText.text = $"+ {lootChestData.upgradeSprintSpeed} Dash Speed\n" +
                                   $"- {lootChestData.upgradeSprintStaminaDrain} Dash Stamina";
         
@@ -417,8 +416,7 @@ public class Level : MonoSingleton<Level>
         playerLevelUp.healthText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeHealth} \nMax HP";
         playerLevelUp.damageText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeDamage} ATK Damage";
         playerLevelUp.attackSpeedText.text = $"- {GetClassData(_combatSystem.playerClass).upgradeAttackSpeed} ATK Cooldown";
-        playerLevelUp.speedText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeSprintSpeed} Speed\n" +
-                                       $"- {GetClassData(_combatSystem.playerClass).upgradeSprintStaminaDrain} Sprint Stamina";
+        playerLevelUp.speedText.text = $"+ {GetClassData(_combatSystem.playerClass).upgradeWalkSpeed} Speed\n";
         
         playerLevelUp.healthButton.onClick.AddListener(() =>
         {

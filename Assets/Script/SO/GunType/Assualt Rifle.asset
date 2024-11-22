@@ -24,12 +24,12 @@ MonoBehaviour:
   maxHpLimit: 300
   damageLimit: 5
   attackSpeedLimit: 0.1
-  walkSpeedLimit: 6
+  walkSpeedLimit: 8
   sprintSpeedLimit: 10
   dashSpeedLimit: 30
   upgradeHealth: 40
   upgradeDamage: 0.8
   upgradeAttackSpeed: 0.06
-  upgradeWalkSpeed: 0.6
+  upgradeWalkSpeed: 1
   upgradeSprintSpeed: 0.8
   upgradeSprintStaminaDrain: 0.5
