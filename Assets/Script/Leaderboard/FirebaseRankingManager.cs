@@ -37,6 +37,7 @@ public class FirebaseRankingManager : MonoSingleton<FirebaseRankingManager>
 
     public LeaderboardUI LeaderboardUIManager;
     [SerializeField] public Ranking rankPlayers;
+    
 
     public PlayerDatas currentPlayerDatas;
     
@@ -163,6 +164,11 @@ public class FirebaseRankingManager : MonoSingleton<FirebaseRankingManager>
     void Update()
     {
         
+    }
+
+    public void ChangeName(string name)
+    {
+        currentPlayerDatas.playerName = name;
     }
 
 }
