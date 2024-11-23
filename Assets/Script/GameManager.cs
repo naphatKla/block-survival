@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("enemyLeftTextOnLose")] [SerializeField] private TextMeshProUGUI enemyKillTextOnLose;
     [SerializeField] private float currencyPerMin = 5f;
     [SerializeField] private float currencyOnWin = 100f;
+    [SerializeField] private TMP_InputField nameInput;
     public bool saveInLeaderboard;
     private float currencySum;
 
@@ -79,11 +80,13 @@ public class GameManager : MonoBehaviour
             enemyKillTextOnLose.text = "Enemy Killed: " + Level.Instance.enemyKill; // enemy Kill on lose
             CareerManager.Instance.SaveCareerData();
             StartCoroutine(EndScenePopUp(loseMenu));
-        }
+        }   
 
         if (isEnd && saveInLeaderboard)
         {
-            // save to leaderboard here
+            FirebaseRankingManager.Instance.currentPlayerDatas.playerName = nameInput.text;
+            FirebaseRankingManager.Instance.currentPlayerDatas.playerKill = (int)Level.Instance.enemyKill;
+            FirebaseRankingManager.Instance.AddDataWithSorting();
         }
     }
     
@@ -136,6 +139,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator EndScenePopUp(GameObject endScene)
     {
+        nameInput.gameObject.SetActive(true);
         while (endScene.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
         {
             foreach (var ui in otherUI)
