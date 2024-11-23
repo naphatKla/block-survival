@@ -36,6 +36,8 @@ public class Career : MonoBehaviour
     public bool IsUnlocked { get; private set; }
     private bool _canUnlock;
     private Image _image;
+    Color32 isntUnlockColor= Color.gray;
+    Color32 unlockedColor = Color.white;
 
     private void Awake()
     {
@@ -166,7 +168,7 @@ public class Career : MonoBehaviour
     private void DebugState()
     {
         Color color = _image.color;
-        color.a = IsUnlocked ? 1 : 0.25f;
+        color = IsUnlocked ? unlockedColor : isntUnlockColor;
         _image.color = color;
     }
     
