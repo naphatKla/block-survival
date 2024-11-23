@@ -136,8 +136,11 @@ public class FirebaseRankingManager : MonoSingleton<FirebaseRankingManager>
         
             if (checkPlayerData.playerName != null)
             {
-                checkPlayerData.playerKill = currentPlayerDatas.playerKill;
-                rankPlayers.playerDatas[IndexOfPlayer] = checkPlayerData;
+                if (checkPlayerData.playerKill < currentPlayerDatas.playerKill)
+                {
+                    checkPlayerData.playerKill = currentPlayerDatas.playerKill;
+                    rankPlayers.playerDatas[IndexOfPlayer] = checkPlayerData;
+                }
             }
         
             else
