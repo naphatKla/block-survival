@@ -20,7 +20,7 @@ public class CareerSaveData
 
 public class CareerManager : PersistentSingleton<CareerManager>
 {
-    public static float currency;
+    public static float currency = 100000f;
     public static Queue<int> savedUnlockPath = new Queue<int>();
     private static bool isCareerTreeUnlocked = false;
     public UnityEvent OnLoadSaveDataDone;
@@ -228,7 +228,7 @@ public class CareerManager : PersistentSingleton<CareerManager>
         sumOfBuffs = new List<Buff>();
         isCareerTreeUnlocked = false;
         savedUnlockPath.Clear();
-        currency += refundCurrency / 2f;
+        currency += (int)(refundCurrency / 2f);
         
         SaveCareerData();
     }

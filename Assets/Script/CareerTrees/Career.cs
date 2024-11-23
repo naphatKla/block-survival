@@ -25,7 +25,7 @@ public struct PlayerStats
 public class Career : MonoBehaviour
 {
     [SerializeField] public string careerName;
-    [SerializeField] [TextArea] public string careerDescription;
+    [SerializeField] [TextArea(15,15)] public string careerDescription;
     
     [SerializeField] protected PlayerStats statsImprovement;
     public float currencyCost;

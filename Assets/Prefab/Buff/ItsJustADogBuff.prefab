@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: It's just a dog
-  buffDescription: "Pro:\nif 5s current DMG Multiply x1.25\nif 15s current DMG Multiply
-    x2\nif 1 min current DMG Multiply x10\n-----------------------------------------------\nCon:\nReduce
-    Max HP from -25%\nIf player getting hurt reset \"It\u2019s just a dog\" skill"
+  buffDescription: "While player not taking any damage for\n- 5s current <color=#034F00>DMG
+    Multiply x1.25</color>\n- 15s current <color=#034F00>DMG Multiply x2</color>\n-
+    60s current <color=#034F00>DMG Multiply x10</color>\n\n<color=#CD0000>Reduce
+    Max HP -25%</color>\nIf player getting hurt reset \"It\u2019s just a dog\" Buff."
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

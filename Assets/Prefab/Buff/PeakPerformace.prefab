@@ -45,16 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: Peak Performance
-  buffDescription: 'Pro:
+  buffDescription: 'If the player''s HP is more than or equal 80%
 
-    DMG taken reduce: 45%
+    - <color=#034F00>DMG
+    taken reduce from 5% -> 50%</color>
 
-    -----------------------------------------------
 
-    Con:
-
-    Disable
-    Peak Performance if player HP below 80%'
+    <color=#034F00>Multiply Max HP from
+    x1.15 -> x1.40</color>'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

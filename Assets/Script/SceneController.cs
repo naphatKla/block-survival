@@ -17,10 +17,8 @@ public class SceneController : MonoBehaviour
     public enum SceneName
     {
         MainMenu,
-        Story,
-        Story2,
-        Gameplay,
-        GamePlayShaoKuyToMobile,
+        MobileGameplay,
+        MobileChallengeMode,
         Exit
     }
 

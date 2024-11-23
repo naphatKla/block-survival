@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Career/TestCareer.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 36ee96bf846d2864888e144b3c922add
-  - enabled: 1
-    path: Assets/Scenes/PCGamePlay.unity
-    guid: 1279c4a98620d4f43bf53bb62bd2c5af
   - enabled: 1
     path: Assets/Scenes/MobileGameplay.unity
     guid: 3091f40da9b2f774a88c21b25f6a8994

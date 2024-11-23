@@ -13,8 +13,10 @@ public class StatsPanel : MonoSingleton<StatsPanel>
     [FoldoutGroup("StatPanel")] [SerializeField] private TextMeshProUGUI attackDamage;
     [FoldoutGroup("StatPanel")] [SerializeField] private TextMeshProUGUI attackSpeed;
     [FoldoutGroup("StatPanel")] [SerializeField] private TextMeshProUGUI statDescription;
+    bool isInitialized = false;
     void Start()
     {
+        isInitialized = true;
         UpdateStat();
     }
 
@@ -26,14 +28,18 @@ public class StatsPanel : MonoSingleton<StatsPanel>
 
     public void UpdateStat()
     {
+        if (!isInitialized) return;
         health.text = "+ " + CareerManager.Instance.GetSumOfStats().health.ToString();
         movementSpeed.text = "+ " +CareerManager.Instance.GetSumOfStats().movementSpeed.ToString();
         attackDamage.text = "+ " + CareerManager.Instance.GetSumOfStats().attackDamage.ToString();
         attackSpeed.text = "+ " + CareerManager.Instance.GetSumOfStats().attackSpeed.ToString();
         string temp = "";
+        if (CareerManager.Instance.GetSumOfBuffs().Count <= 0)
+            temp = "there is no buff available!";
+        
         foreach (Buff a in CareerManager.Instance.GetSumOfBuffs())
         {
-            temp += a.GetBuffName() +  "\n";
+            temp += $"<b><size=120%>{a.GetBuffName()}</size></b>\n{a.GetBuffDescription()}\n\n-------------------------------------------\n";
         }
 
         statDescription.text = temp;

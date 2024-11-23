@@ -50,7 +50,16 @@ public class CareerUIManager : MonoSingleton<CareerUIManager>
         buyButton.onClick.RemoveAllListeners();
         careerPathHeader.text = career.careerName;
         careerPathDescription.text = career.careerDescription;
-        careerPathPrice.text = $"Price : {career.currencyCost.ToString()}";
+        
+        if (CareerManager.currency < career.currencyCost)
+        {
+            careerPathPrice.text = $"<color=red>Price : {career.currencyCost.ToString()}";
+        }
+        else
+        {
+            careerPathPrice.text = $"Price : {career.currencyCost.ToString()}";
+        }
+        
         List<Buff> buffs = career.GetBuffs();
         if (buffs.Count != 0)
         {

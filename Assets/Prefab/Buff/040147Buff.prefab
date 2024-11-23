@@ -45,22 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: 040174
-  buffDescription: 'Pro:
+  buffDescription: '<color=#034F00>Increase critical chance +15%
 
-    Has a chance to deal a critical DMG to enemy
+    Increase ATS
+    +10%</color>
 
 
-    Increase
-    critical chance +15%
-
-    Increase ATS +10%
-
-    -----------------------------------------------
-
-    Con:
-
-    Reduce
-    Max HP -10%'
+    <color=#CD0000>Reduce Max HP -10%</color>'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0

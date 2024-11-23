@@ -45,29 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffName: Right tool for the right job
-  buffDescription: 'Pro:
+  buffDescription: 'Unlock all weapon, using every weapon the game at the same time
 
-    Unlock all weapon, using every weapon the game at the
-    same time
-
-    (All weapon stats based on default gun)
+    (All
+    weapon stats based on default gun)
 
 
-    Increase critical
-    chance from +15% -> 40%
-
-    -----------------------------------------------
-
-    Con:
-
-    Level
-    Up does not give player stats only to increase the stats is  by chest
+    - <color=#034F00>Increase critical chance
+    from +15% -> 40%</color>
 
 
-    Reduce
-    Max HP from -10% -> -20%
+    - <color=#CD0000>Level Up does not give player
+    stats only to increase the stats is  by chest</color>
 
-    Walk Speed -1'
+    - <color=#CD0000>Reduce
+    Max HP from -10% -> -20%</color>
+
+    - <color=#CD0000>Speed -1</color>'
   hasLifetime: 0
   hasCooldown: 0
   buffDuration: 0
