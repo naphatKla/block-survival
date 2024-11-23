@@ -139,7 +139,8 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator EndScenePopUp(GameObject endScene)
     {
-        nameInput.gameObject.SetActive(true);
+        if (nameInput)
+            nameInput.gameObject.SetActive(true);
         while (endScene.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
         {
             foreach (var ui in otherUI)
