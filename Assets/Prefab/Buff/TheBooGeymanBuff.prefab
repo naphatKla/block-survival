@@ -52,7 +52,7 @@ MonoBehaviour:
     stats point +0.0025 can stack up infinitely</color>
 
 
-    <color=#CD0000>Redyce
+    <color=#CD0000>Reduce
     Max HP from -25% -> -50%</color>'
   hasLifetime: 0
   hasCooldown: 0

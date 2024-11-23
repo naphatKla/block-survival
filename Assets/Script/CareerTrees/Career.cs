@@ -98,6 +98,7 @@ public class Career : MonoBehaviour
         
         CareerManager.currency -= currencyCost;
         CareerManager.Instance.SetCurrentCareer(this);
+        if (!StatsPanel.Instance) return;
         StatsPanel.Instance.UpdateStat();
     }
     
