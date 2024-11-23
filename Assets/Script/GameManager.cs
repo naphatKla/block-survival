@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public float timeInGame;
     private Player _player;
     public bool isEnd;
+    private float addCurrencyTimeTick;
 
     void Start()
     {
@@ -58,9 +59,14 @@ public class GameManager : MonoBehaviour
 
         if(isEnd) return;
         
-        if ((int)timeInGame % 60 == 0 && (int)timeInGame <= 900 && (int)timeInGame > 0)
+        if (timeInGame <= 900)
         {
-            currencySum += currencyPerMin;
+            addCurrencyTimeTick += Time.deltaTime;
+            if (addCurrencyTimeTick >= 60)
+            {
+                currencySum += currencyPerMin;
+                addCurrencyTimeTick = 0;
+            }
         }
         
         if(enemyLeft <= 0 && timeInGame >= 900)
