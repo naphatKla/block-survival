@@ -100,7 +100,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32767
 --- !u!1 &3062615716191971985
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +519,18 @@ PrefabInstance:
     - target: {fileID: 2180886857331969298, guid: 06ada53d0df95be47b222cd5d1053fc1, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180886857331969300, guid: 06ada53d0df95be47b222cd5d1053fc1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180886857331969300, guid: 06ada53d0df95be47b222cd5d1053fc1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180886857331969300, guid: 06ada53d0df95be47b222cd5d1053fc1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2180886857331969300, guid: 06ada53d0df95be47b222cd5d1053fc1, type: 3}
       propertyPath: m_SortingLayer
