@@ -1056,7 +1056,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 2.65}
+  m_Size: {x: 1.9, y: 2.75}
   m_EdgeRadius: 0
 --- !u!82 &2369444228019802533
 AudioSource:
@@ -1541,7 +1541,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.875, y: 1.325}
+  m_Size: {x: 1.5, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &2369444228286419660
 GameObject:
