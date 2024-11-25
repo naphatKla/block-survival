@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class LeaderboardUI : MonoBehaviour
 {
-    
     public GameObject rankDataPrefab;
     public Transform rankPanel;
 
@@ -13,17 +12,27 @@ public class LeaderboardUI : MonoBehaviour
     public List<GameObject> createdPlayerDatas = new List<GameObject>();
     
     // Start is called before the first frame update
-    void Start()
+
+    private void OnFirebaseLoad()
     {
+        playerDatas = FirebaseRankingManager.Instance.rankPlayers.playerDatas;
         ReloadRankData();
+        Debug.Log("assign data to UI");
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Start()
     {
-        
+        // wait for 1 frame to make sure the FirebaseRankingManager is initialized
+        yield return null;
+        FirebaseRankingManager.Instance.OnLoadDataDone.AddListener(OnFirebaseLoad);
+        FirebaseRankingManager.Instance.ReloadSortingData();
     }
 
+    void OnDestroy()
+    {
+        FirebaseRankingManager.Instance.OnLoadDataDone.RemoveListener(OnFirebaseLoad);
+    }
+    
     public void CreateRankData()
     {
         for (int i = 0; i < playerDatas.Count; i++)
