@@ -39,7 +39,10 @@ public class BulletEditor : Editor
         
         if (_bulletType.enumValueIndex.Equals((int)Bullet.BulletType.Player))
             EditorGUILayout.PropertyField(_playerClassData);
-        EditorGUILayout.ObjectField(_damageText);
+        if (_damageText != null)
+        {
+            EditorGUILayout.ObjectField(_damageText);
+        }
         serializedObject.ApplyModifiedProperties();
     }
 }

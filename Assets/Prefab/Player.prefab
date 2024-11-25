@@ -919,9 +919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 297013707539451747, guid: 067f28c23024b86458dc557cd41aa256, type: 3}
   assaultRifleBullet: {fileID: 297013707539451747, guid: 735830848f6b9044d8b749c38f4b315c, type: 3}
-  shotgunBullet: {fileID: 3289508808083760563, guid: 62feaabec55b11143928267023a43c24, type: 3}
+  shotgunBullet: {fileID: -2945544184029235298, guid: 62feaabec55b11143928267023a43c24, type: 3}
   sniperBullet: {fileID: 2991003463640811523, guid: ac54213984557a14bafe4fe5e233ce4c, type: 3}
-  missileBullet: {fileID: -2437331035498632374, guid: e708bdddcb184d44781fd89a7cce6088, type: 3}
+  missileBullet: {fileID: -4789052545597164607, guid: e708bdddcb184d44781fd89a7cce6088, type: 3}
   sword: {fileID: -1731694055139415694, guid: 6f0292b9bf43a914785d762df6f6b689, type: 3}
   explode: {fileID: 4131746730232935487, guid: 2f43f2d14425e1143b3dcd1304879946, type: 3}
   shootingSoundEffect: {fileID: 2369444228019802533}

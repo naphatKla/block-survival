@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8980201178992539981}
   - component: {fileID: -5001554188659492586}
   - component: {fileID: 744768221092598033}
+  - component: {fileID: -4789052545597164607}
   m_Layer: 0
   m_Name: MissileBullet
   m_TagString: Untagged
@@ -302,3 +303,22 @@ PolygonCollider2D:
       - {x: 0.79999995, y: -2.2}
       - {x: 0.89, y: -2.08}
       - {x: 0.89, y: -1.9}
+--- !u!114 &-4789052545597164607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8346823824653139270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf2556782a347646ae61d1f35a4dcf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: 0
+  playerClassData: {fileID: 11400000, guid: 98fe99e135a52a549aa9d9b3675f1bf9, type: 2}
+  bulletSpeed: 0
+  bulletDamage: 0
+  bulletOffSetScale: 0
+  destroyTime: 0
+  explode: {fileID: 5311579173331563028, guid: 2f43f2d14425e1143b3dcd1304879946, type: 3}
