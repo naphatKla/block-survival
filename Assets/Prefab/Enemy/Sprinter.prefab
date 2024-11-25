@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 7467399288303019217}
   - component: {fileID: 3160113076237749538}
   - component: {fileID: 5453148597757173859}
+  - component: {fileID: 5234157388592267650}
   - component: {fileID: 4159439135546074144}
   m_Layer: 7
   m_Name: Sprinter
@@ -382,8 +383,8 @@ SpriteRenderer:
   m_SortingLayerID: -1349601151
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1592241979, guid: 63793a954f0e7224d95072e3922f5d77, type: 3}
-  m_Color: {r: 0.4575472, g: 1, b: 0.9365644, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bab95870946b5344a947d04c736ae90a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -450,7 +451,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7467399288303019214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -460,7 +461,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 1.1}
+    oldSize: {x: 1.5, y: 1.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -481,6 +482,32 @@ PolygonCollider2D:
       - {x: 0.59999996, y: -0.55}
       - {x: 0.62, y: -0.53999996}
       - {x: 0.62, y: -0.39}
+--- !u!61 &5234157388592267650
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467399288303019214}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02, y: -0.06}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.72, y: 1.35}
+  m_EdgeRadius: 0
 --- !u!95 &4159439135546074144
 Animator:
   serializedVersion: 4
