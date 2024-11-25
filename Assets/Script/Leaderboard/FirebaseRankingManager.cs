@@ -6,6 +6,7 @@ using SimpleJSON;
 using System.Linq;
 using MoreMountains.Tools;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -30,12 +31,11 @@ public class Ranking
 {
     public List<PlayerDatas> playerDatas = new List<PlayerDatas>();
 }
-public class FirebaseRankingManager : MonoSingleton<FirebaseRankingManager>
+public class FirebaseRankingManager : PersistentSingleton<FirebaseRankingManager>
 {
     public const string url = "https://blocksurvival-c49e5-default-rtdb.asia-southeast1.firebasedatabase.app";
     public const string secret = "NjYFQUTGtcNhl1aira3J8riIg8W28UqzVIGpJ3by";
-
-    public LeaderboardUI LeaderboardUIManager;
+    public UnityEvent OnLoadDataDone;
     [SerializeField] public Ranking rankPlayers;
     
 
@@ -51,7 +51,7 @@ public class FirebaseRankingManager : MonoSingleton<FirebaseRankingManager>
 
             rankPlayers = new Ranking();
             rankPlayers.playerDatas = new List<PlayerDatas>();
-            
+
             for (int i = 0; i < jsonNode.Count; i++)
             {
                 rankPlayers.playerDatas.Add(new PlayerDatas(
@@ -60,16 +60,10 @@ public class FirebaseRankingManager : MonoSingleton<FirebaseRankingManager>
                     jsonNode[i]["playerKill"],
                     jsonNode[i]["playerMode"]));
             }
-
             CalculateRankFromScore();
             SetLocalToDataBase();
-            if (LeaderboardUIManager != null)
-            {
-                Debug.Log(LeaderboardUIManager.gameObject.name);
-                LeaderboardUIManager.playerDatas = rankPlayers.playerDatas;
-                LeaderboardUIManager.ReloadRankData();
-            }
-            
+            Debug.Log("Firebase Data Loaded");
+            OnLoadDataDone?.Invoke();
         }).Catch(error =>
         {
             Debug.Log(error.Message);
@@ -157,12 +151,6 @@ public class FirebaseRankingManager : MonoSingleton<FirebaseRankingManager>
         });
     }
     
-    
-    void Start()
-    {
-        ReloadSortingData();
-    }
-
     // Update is called once per frame
     void Update()
     {
