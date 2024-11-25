@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4131746730232935475}
   - component: {fileID: 4131746730232935472}
   - component: {fileID: 4131746730232935473}
-  - component: {fileID: 3900993234661879860}
+  - component: {fileID: 145057452955140314}
   - component: {fileID: 5311579173331563028}
   - component: {fileID: 1003084390758243287}
   m_Layer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0.7490196}
+  m_Color: {r: 0.9716981, g: 0.75235, b: 0.3428444, a: 0.7490196}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,8 +109,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3900993234661879860
-BoxCollider2D:
+--- !u!60 &145057452955140314
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,9 +132,48 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.296875, y: -0.4140625}
+      - {x: 0.3984375, y: -0.3125}
+      - {x: 0.43359375, y: -0.26171875}
+      - {x: 0.46875, y: -0.1875}
+      - {x: 0.48828125, y: -0.14453125}
+      - {x: 0.5, y: -0.07421875}
+      - {x: 0.5, y: 0.08203125}
+      - {x: 0.4921875, y: 0.11328125}
+      - {x: 0.46875, y: 0.1953125}
+      - {x: 0.42578125, y: 0.2734375}
+      - {x: 0.3984375, y: 0.3125}
+      - {x: 0.33984375, y: 0.375}
+      - {x: 0.26171875, y: 0.43359375}
+      - {x: 0.17578125, y: 0.4765625}
+      - {x: 0.1328125, y: 0.4921875}
+      - {x: 0.0859375, y: 0.5}
+      - {x: -0.07421875, y: 0.5}
+      - {x: -0.11328125, y: 0.49609375}
+      - {x: -0.1953125, y: 0.46875}
+      - {x: -0.2734375, y: 0.4296875}
+      - {x: -0.33984375, y: 0.375}
+      - {x: -0.37890625, y: 0.33984375}
+      - {x: -0.43359375, y: 0.26171875}
+      - {x: -0.4765625, y: 0.1796875}
+      - {x: -0.5, y: 0.09765625}
+      - {x: -0.5, y: -0.08203125}
+      - {x: -0.484375, y: -0.14453125}
+      - {x: -0.46484375, y: -0.1953125}
+      - {x: -0.42578125, y: -0.2734375}
+      - {x: -0.3984375, y: -0.3125}
+      - {x: -0.33984375, y: -0.37890625}
+      - {x: -0.26171875, y: -0.43359375}
+      - {x: -0.1953125, y: -0.46484375}
+      - {x: -0.15625, y: -0.484375}
+      - {x: -0.09375, y: -0.49609375}
+      - {x: -0.078125, y: -0.5}
+      - {x: 0.0703125, y: -0.5}
+      - {x: 0.09375, y: -0.49609375}
+      - {x: 0.14453125, y: -0.484375}
+      - {x: 0.19921875, y: -0.46875}
 --- !u!114 &5311579173331563028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 0.4
-  damageText: {fileID: 1540198057, guid: 42901af67379c5641ba7f5cc069ebc63, type: 3}
 --- !u!95 &1003084390758243287
 Animator:
   serializedVersion: 4
