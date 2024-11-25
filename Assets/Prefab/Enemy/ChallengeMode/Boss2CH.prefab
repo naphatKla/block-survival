@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
+  m_AnchoredPosition: {x: -1, y: 209}
   m_SizeDelta: {x: 335.22, y: 39.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7345407450751672669
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32767
 --- !u!1 &7383754082981301586
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 8008205033387397359}
   - component: {fileID: 2547258393638517021}
   - component: {fileID: 8987054063770570637}
+  - component: {fileID: 7142317065813219887}
   - component: {fileID: 1923786413795635554}
   - component: {fileID: 6603808897122201868}
   m_Layer: 14
@@ -370,7 +371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008205033387397361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0870094, y: 2.8629713, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -419,12 +420,12 @@ SpriteRenderer:
   m_SortingLayerID: -1349601151
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 566871798, guid: 9de507b1e8e07414ebb4b27366cf0909, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d58d7cd670aedea4f953aeee8bfef376, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.24, y: 1.5}
+  m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -468,8 +469,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 1.5}
-    newSize: {x: 1.24, y: 1.5}
+    oldSize: {x: 1.5, y: 1.5}
+    newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -478,13 +479,60 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.18922746, y: 0.74321485}
       - {x: -0.19207227, y: 0.7399719}
-      - {x: -0.20183194, y: 0.48725438}
-      - {x: -0.52779025, y: 0.4880643}
-      - {x: -0.61345166, y: 0.48575795}
-      - {x: -0.62, y: -0.75}
-      - {x: 0.62, y: -0.75}
-      - {x: 0.62, y: 0.48999998}
-      - {x: 0.20672567, y: 0.4946127}
+      - {x: -0.30113712, y: 0.5761063}
+      - {x: -0.39712554, y: 0.45670483}
+      - {x: -0.563799, y: 0.16954936}
+      - {x: -0.56184924, y: 0.039525315}
+      - {x: -0.4897364, y: -0.03735409}
+      - {x: -0.49170908, y: -0.088477075}
+      - {x: -0.54455626, y: -0.12361691}
+      - {x: -0.6040655, y: -0.20518199}
+      - {x: -0.6265357, y: -0.30803454}
+      - {x: -0.5813257, y: -0.42833745}
+      - {x: -0.52318496, y: -0.5044811}
+      - {x: -0.33776426, y: -0.57752264}
+      - {x: -0.24083412, y: -0.70238894}
+      - {x: -0.12285164, y: -0.74250674}
+      - {x: 0.08282557, y: -0.7445814}
+      - {x: 0.26337346, y: -0.6789183}
+      - {x: 0.3093625, y: -0.5769846}
+      - {x: 0.4871739, y: -0.48633033}
+      - {x: 0.56724054, y: -0.3837877}
+      - {x: 0.5714083, y: -0.23620823}
+      - {x: 0.535387, y: -0.15887155}
+      - {x: 0.46948475, y: -0.10462865}
+      - {x: 0.4674249, y: -0.062420316}
+      - {x: 0.51714844, y: 0.01762929}
+      - {x: 0.5372616, y: 0.047586776}
+      - {x: 0.53367126, y: 0.17127323}
+      - {x: 0.43706945, y: 0.3645618}
+      - {x: 0.31909737, y: 0.5494919}
+--- !u!61 &7142317065813219887
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008205033387397361}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02, y: -0.02}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.5}
+    newSize: {x: 1.5, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!114 &1923786413795635554
 MonoBehaviour:
   m_ObjectHideFlags: 0

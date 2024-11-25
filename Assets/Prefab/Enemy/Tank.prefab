@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 865993947439010482}
   - component: {fileID: 4647665230430878529}
   - component: {fileID: -1135054342150573880}
-  - component: {fileID: 5269387138374202338}
   - component: {fileID: 2667421264230369020}
   m_Layer: 8
   m_Name: Tank
@@ -116,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: -1349601151
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d2be7a9fb6d9d94ca27373a6cf306fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3852bb4735960e740bb5475401432e32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,7 +183,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865993947439010477}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -202,38 +201,42 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.24, y: 0.75}
-      - {x: -0.19999999, y: 0.75}
-      - {x: -0.62, y: 0.58}
-      - {x: -0.62, y: -0.75}
-      - {x: 0.62, y: -0.75}
-      - {x: 0.62, y: 0.5}
---- !u!61 &5269387138374202338
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865993947439010477}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.01}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1.24, y: 1.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.55, y: 1.8}
-  m_EdgeRadius: 0
+    - - {x: 0.75, y: -0.13}
+      - {x: 0.77, y: 0.099999994}
+      - {x: 0.77, y: 0.41}
+      - {x: 0.69, y: 0.53999996}
+      - {x: 0.59, y: 0.55}
+      - {x: 0.42999998, y: 0.53}
+      - {x: 0.41, y: 0.79999995}
+      - {x: 0.29999998, y: 0.9}
+      - {x: 0.14, y: 0.9}
+      - {x: 0.07, y: 0.88}
+      - {x: 0.04, y: 0.59}
+      - {x: -0.07, y: 0.62}
+      - {x: -0.08, y: 0.82}
+      - {x: -0.13, y: 0.9}
+      - {x: -0.29, y: 0.9}
+      - {x: -0.41, y: 0.79999995}
+      - {x: -0.38, y: 0.59}
+      - {x: -0.47, y: 0.45}
+      - {x: -0.57, y: 0.53}
+      - {x: -0.65999997, y: 0.53999996}
+      - {x: -0.74, y: 0.45}
+      - {x: -0.77, y: 0.39}
+      - {x: -0.77, y: 0.06}
+      - {x: -0.76, y: -0.13}
+      - {x: -0.63, y: -0.32999998}
+      - {x: -0.56, y: -0.48}
+      - {x: -0.45, y: -0.56}
+      - {x: -0.35999998, y: -0.68}
+      - {x: -0.32, y: -0.82}
+      - {x: -0.28, y: -0.87}
+      - {x: -0.16, y: -0.90999997}
+      - {x: 0.11, y: -0.90999997}
+      - {x: 0.26999998, y: -0.89}
+      - {x: 0.38, y: -0.81}
+      - {x: 0.45, y: -0.56}
+      - {x: 0.56, y: -0.48}
 --- !u!95 &2667421264230369020
 Animator:
   serializedVersion: 4
@@ -383,7 +386,7 @@ RectTransform:
   m_GameObject: {fileID: 7340373244815498350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4330921453347125683}
@@ -392,7 +395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 214.4}
+  m_AnchoredPosition: {x: 0, y: 334}
   m_SizeDelta: {x: 335.22, y: 39.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &492684343919977217
