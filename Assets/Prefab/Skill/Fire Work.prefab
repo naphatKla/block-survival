@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -418559399
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,6 +150,7 @@ MonoBehaviour:
   name: Fire Work
   skillDamage: 10
   skillCooldown: 5
+  skillLevelUnlock: 0
   skillCurrentCooldown: 0
   destroyTime: 3
   skillOffset: 0
@@ -158,6 +159,7 @@ MonoBehaviour:
   isKnockBack: 0
   knockBackForce: 5
   knockBackDuration: 0.2
+  currentAttackCooldown: 0
   player: {fileID: 0}
   isCooldown: 0
-  bullet: {fileID: 4639005615368539342, guid: 688faeec68a81784b82434f3a617eb85, type: 3}
+  bullet: {fileID: 6515717700904408982, guid: 067f28c23024b86458dc557cd41aa256, type: 3}

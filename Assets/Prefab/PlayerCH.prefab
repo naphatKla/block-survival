@@ -1132,7 +1132,7 @@ MonoBehaviour:
   attackSpeedMultiplier: 1
   criticalRate: 0
   basePlayerAttackSpeed: 1
-  basePlayerDamage: 2
+  basePlayerDamage: 1
   health: 0
   playerAttackSpeedBuff: 0
   playerDamageBuff: 0
