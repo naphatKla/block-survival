@@ -263,14 +263,14 @@ public class Player : MonoSingleton<Player>
             }
         }
 
-        if (nearestEnemy != null)
+        if (nearestEnemy)
         {
             Vector3 enemyPosition = nearestEnemy.transform.position;
             Vector2 direction = new Vector2(
                 enemyPosition.x - playerTransform.position.x,
                 enemyPosition.y - playerTransform.position.y
             ).normalized;
-            playerTransform.up = Vector2.MoveTowards(playerTransform.up, direction, 5 * Time.deltaTime);
+            playerTransform.up = Vector2.MoveTowards(playerTransform.up, direction, 10 * Time.deltaTime);
         }
         else
         {
