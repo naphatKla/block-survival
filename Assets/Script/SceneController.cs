@@ -19,6 +19,8 @@ public class SceneController : MonoBehaviour
         MainMenu,
         MobileGameplay,
         MobileChallengeMode,
+        PC_Gameplay,
+        PC_Challenge,
         Exit
     }
 
